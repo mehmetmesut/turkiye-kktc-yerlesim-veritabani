@@ -10,13 +10,16 @@ A single, open dataset of provinces, districts, quarters, neighbourhoods, villag
 |---|---:|---:|---:|
 | İl / Province | 81 | 6 | 87 |
 | İlçe / District (KKTC: bucak) | 973 | 29 | 1.002 |
-| Mahalle / Neighbourhood | 34.326 | 98 | 34.424 |
-| Köy / Village | 18.244 | 173 | 18.417 |
-| Köy mahallesi / Village quarter | 26.237 | – | 26.237 |
-| Bağlı birim / Hamlet | 23.569 | – | 23.569 |
-| **Toplam / Total** | **102.376** | **271** | **102.647** |
+| Mahalle / Neighbourhood | 34.563 | 98 | 34.661 |
+| Köy / Village | 18.245 | 173 | 18.418 |
+| Köy mahallesi / Village quarter | 18.165 | – | 18.165 |
+| Bağlı birim / Hamlet | 23.552 | – | 23.552 |
+| **Toplam / Total** | **94.525** | **271** | **94.796** |
 
-Posta kodu dolu / With postal code: **%99,7** (102.319) · Semt dolu / With quarter: **%90,9** · Güncelleme / Updated: **14.11.2026**
+- Posta kodu / Postal code: **%100 dolu / filled**. Türkiye'deki her kod, 14.11.2026'da PTT'den canlı alınan veride kendi ilçesinde geçerli bir koddur. Every Türkiye code is a valid code of its district in live PTT data retrieved on 14 Nov 2026.
+- PTT'de karşılığı bulunamayan 541 kayıtta (%0,6) kod, aynı belde / ilçedeki en yaygın koddur ve `kaynak` alanında `tahmini-ilce` olarak işaretlidir. For 541 records (0.6%) with no PTT counterpart, the code is the most common code of the same town / district, flagged `tahmini-ilce` (estimated).
+- Mükerrer yok / No duplicates: aynı il + ilçe + ad taşıyan satırlar ancak farklı yerlerdir (farklı belde, farklı köy ya da farklı tür). Rows sharing province + district + name are distinct places (different town, village or type).
+- Semt dolu / With quarter: **%92,2** · Güncelleme / Updated: **14.11.2026**
 
 ---
 
@@ -65,7 +68,7 @@ Posta kodu dolu / With postal code: **%99,7** (102.319) · Semt dolu / With quar
 
 Öncelik sırası: İçişleri (birim adı ve bağlılık) → PTT güncel (posta kodu) → eski PTT listeleri (semt ve yedek posta kodu). Adlar Türkçe yazım kurallarına göre büyük-küçük harfe çevrilmiştir.
 
-`kaynak` değerleri: `icisleri` · `ptt` (güncel PTT, aynı ad) · `ptt-benzer-ad` (aynı ilçede yazım farkı) · `ptt-2021` / `ptt-2024` (eski PTT listesi) · `ptt-2021-semt` · türetilen kodlar: `koyden` (bağlı birim → köyü), `koy-mahallelerinden` (köy → köy mahalleleri), `beldeden`, `semtten`, `ilceden` (ilçedeki tüm köylerin ortak kodu), `ptt-farkli-ilce` · `kktc-posta`.
+`kaynak` değerleri: `icisleri` · `ptt` (güncel PTT, aynı ad) · `ptt-benzer-ad` / `ptt-benzer-ad-zayif` (aynı ilçede yazım farkı: 4 Eylül ↔ Dörteylül, Altınlı ↔ Altunlu) · `ptt-2021` / `ptt-2024` (eski PTT listesi) · `ptt-2021-semt` / `ptt-2021-belde` · türetilen kodlar: `koyden` (bağlı birim → köyü), `koy-mahallelerinden` (köy → köy mahalleleri), `beldeden`, `semtten`, `ilceden` (ilçedeki tüm köylerin ortak kodu) · `tahmini-ilce` (tahmini) · `kktc-posta`. Eşleştirme kararları `veri/eslesme-raporu.txt` dosyasında tek tek listelenir; `araclar/denetle.py` tüm denetimleri yeniden çalıştırır.
 ### Yeniden üretme
 
 1. `python araclar/icisleri_indir.py <dizin>` — İçişleri Excel listelerini indirir (LibreOffice ile CSV'ye çevirin).
@@ -130,7 +133,7 @@ Bu çalışma işinize yaradıysa depoya ⭐ **yıldız** vererek ve [Tartışma
 
 Precedence: Ministry of Interior (names and hierarchy) → current PTT (postal codes) → earlier PTT lists (quarters and fallback codes). Names are title-cased according to Turkish orthography.
 
-`kaynak` values: `icisleri` · `ptt` (current PTT, exact name) · `ptt-benzer-ad` (same district, spelling variant) · `ptt-2021` / `ptt-2024` (earlier PTT lists) · `ptt-2021-semt` · derived codes: `koyden` (hamlet → its village), `koy-mahallelerinden` (village → its quarters), `beldeden`, `semtten`, `ilceden` (code shared by all villages of the district), `ptt-farkli-ilce` · `kktc-posta`.
+`kaynak` values: `icisleri` · `ptt` (current PTT, exact name) · `ptt-benzer-ad` / `ptt-benzer-ad-zayif` (same district, spelling variant) · `ptt-2021` / `ptt-2024` (earlier PTT lists) · `ptt-2021-semt` / `ptt-2021-belde` · derived codes: `koyden` (hamlet → its village), `koy-mahallelerinden` (village → its quarters), `beldeden`, `semtten`, `ilceden` (code shared by all villages of the district) · `tahmini-ilce` (estimated) · `kktc-posta`. Every matching decision is listed in `veri/eslesme-raporu.txt`; `araclar/denetle.py` re-runs all checks.
 ### Rebuilding
 
 1. `python araclar/icisleri_indir.py <dir>` — downloads the Ministry of Interior Excel lists (convert to CSV with LibreOffice).
