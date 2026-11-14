@@ -90,6 +90,8 @@ def ayristir(mah: str):
     """PTT birim adı → (tür, ad, köy). Sondaki "MAH." / "MH" eki ve virgül gibi artıklar atılır."""
     u = ust(mah.strip())
     m = KOY_BAGLI.match(u) or KOY_BAGLI_YENI.match(u)
+    if m and not temiz(m.group(1)):  # " / SAMANYOLU KÖYÜ": adsız köy mahallesi → köyün kendisi
+        return "köy", temiz(m.group(2)), None
     if m:
         return "köy mahallesi", temiz(m.group(1)), temiz(m.group(2))
     if u.endswith(" KÖYÜ"):
@@ -105,6 +107,7 @@ def temiz(s: str) -> str:
 
 ptt = json.loads((KAYNAK / "ptt-guncel.json").read_text(encoding="utf-8"))
 ptt_kod = {}  # (il, ilce, tur, ad, koy) → Counter(pk)
+ptt_ad = {}  # aynı anahtar → PTT'nin birebir yazımları ("CUMHURİYET / SARIYAPRAK KÖYÜ")
 ptt_ham = []
 for il in ptt["iller"].values():
     for ilce_ad, ilce in il["ilceler"].items():
@@ -114,6 +117,7 @@ for il in ptt["iller"].values():
                 continue
             a = (anahtar(il["ad"]), ilce_anahtar(ilce_ad), tur, anahtar(ad), anahtar(koy or ""))
             ptt_kod.setdefault(a, Counter()).update({k: int(v) for k, v in pkler.items()})
+            ptt_ad.setdefault(a, set()).add(mah.strip())
             ptt_ham.append((a, il["ad"], ilce_ad, tur, ad, koy))
 
 # ── 3. PTT 2021 (semt) ve 2024 türevi (yedek posta kodu) ─────────────────────
@@ -204,25 +208,30 @@ for k in kayitlar:
     # Mükerrer önleme: İçişleri'nin bağlı birimi PTT'de "AD / KÖY KÖYÜ" (köy mahallesi) olarak geçer;
     # köyün kendi adını taşıyan köy mahallesi ("BAHRİ / BAHRİ KÖYÜ") köyün kendisidir.
     es = None
+    pttadi = set()
     if k["tur"] == "bağlı":
         es = (a[0], a[1], "köy mahallesi", a[3], a[4])
     elif k["tur"] == "köy":
         es = (a[0], a[1], "köy mahallesi", a[3], a[3])
     if es in ptt_kod and es not in kullanilan:
         kullanilan.add(es)
+        pttadi |= ptt_ad[es]
         if a not in ptt_kod:
             ptt_kod[a] = ptt_kod[es]
+            ptt_ad.setdefault(a, set())
             semt.setdefault(a, semt.get(es))
     pkc = ptt_kod.get(a)
     b = None if pkc else benzer_bul(a)
     if b:
         pkc = ptt_kod[b]
         kullanilan.add(b)
+        pttadi |= ptt_ad[b]
         kaynak.append("ptt-benzer-ad")
         benzer_cift.append((k["il"], k["ilce"], k["tur"], k["ad"], b[3], k["koy"] or ""))
         pkler = [p for p, _ in pkc.most_common()]
     elif pkc:
         kullanilan.add(a)
+        pttadi |= ptt_ad.get(a, set())
         kaynak.append("ptt")
         pkler = [p for p, _ in pkc.most_common()]
     elif a in pk_2021:
@@ -243,7 +252,7 @@ for k in kayitlar:
             kaynak.append("ptt-2021-belde")
     if sm and "ptt-2021" not in kaynak:
         kaynak.append("ptt-2021-semt")
-    cikti.append({**k, "a": a, "semt": sm, "pk": pkler, "kaynak": kaynak})
+    cikti.append({**k, "a": a, "semt": sm, "pk": pkler, "kaynak": kaynak, "ptt_adi": pttadi})
 
 # Eksik tamamlama (türetme): bağlı birim köyünün, beldedeki mahalle beldesinin posta kodunu / semtini alır.
 # Üst birim: köy; büyükşehirlerde eski köyler mahalle olduğundan mahalle de aranır (köy öncelikli).
@@ -318,6 +327,49 @@ for c in cikti:
             c["kaynak"].append("beldeden")
             turetilen["belde mahallesi posta kodu"] += 1
 
+# İçişleri'nde aynı ilçede aynı adla birden çok kayıt (ör. Efeler'de iki Yeniköy): PTT bunları
+# "DALAMA BUCAĞI YENİKÖY" / "MERKEZ BUCAĞI YENİKÖY" gibi ayırır; adı içeren eşleşmemiş PTT kayıtları sırayla dağıtılır.
+gruplar = defaultdict(list)
+for c in cikti:
+    if "icisleri" in c["kaynak"] and c["tur"] in ("mahalle", "köy"):
+        gruplar[c["a"]].append(c)
+ayni_ad_ayrilan = []
+for a, grup in gruplar.items():
+    if len(grup) < 2:
+        continue
+    adaylar = sorted(b for b in aday.get((a[0], a[1], a[2], a[4]), ()) if b not in kullanilan and a[3] in b[3] and b[3] != a[3])
+    if a in ptt_kod:
+        adaylar = [a] + adaylar  # tam adlı PTT kaydı da gruptaki birimlerden biridir
+    if len(adaylar) < len(grup):
+        continue
+    # Eşleme: beldeye bağlı birim, PTT adında belde adı geçen kayda; beldesiz birim önce tam adlı kayda.
+    def tam(s, ptt=False):  # ekleri atmadan karşılaştırma ("YENİ MAHALLE" ≠ "YENİ"); PTT'nin kendi eki "MAH." atılır
+        s = ust(s)
+        if ptt:
+            s = re.sub(r"\s+(MAH\.?|KÖYÜ)$", "", s)
+        return re.sub(r"[^0-9A-ZÇĞİÖŞÜÂÎÛ]", "", s)
+
+    def esleme_puani(c, b):
+        p = max(SequenceMatcher(None, tam(c["ad"]), tam(x, True)).ratio() for x in ptt_ad[b])
+        if c["belde"] and anahtar(c["belde"]) in b[3]:
+            p += 1
+        return p
+
+    puanlar = sorted(((esleme_puani(c, b), i, b) for i, c in enumerate(grup) for b in adaylar), key=lambda x: -x[0])
+    eslesme, alinan_c, alinan_b = [], set(), set()
+    for p, i, b in puanlar:  # en yüksek puanlı çiftten başlayarak her birime bir PTT kaydı
+        if i in alinan_c or b in alinan_b:
+            continue
+        alinan_c.add(i)
+        alinan_b.add(b)
+        eslesme.append((grup[i], b))
+    for c, b in eslesme:
+        kullanilan.add(b)
+        c["pk"] = [p for p, _ in ptt_kod[b].most_common()]
+        c["ptt_adi"] = set(ptt_ad[b])
+        c["kaynak"] = ["icisleri", "ptt-ayni-ad-ayrimi"]
+        ayni_ad_ayrilan.append((c["il"], c["ilce"], c["ad"], " | ".join(sorted(ptt_ad[b]))))
+
 # PTT'de olup İçişleri'nde eşi bulunmayanlar (ad farkı ya da yeni / kaldırılmış birim) ayrıca eklenir.
 yalniz_ptt = []
 for a, il, ilce, tur, ad, koy in ptt_ham:
@@ -326,7 +378,8 @@ for a, il, ilce, tur, ad, koy in ptt_ham:
     kullanilan.add(a)
     yalniz_ptt.append(a)
     cikti.append({"il": il, "ilce": ilce, "belde": None, "tur": tur, "ad": ad, "koy": koy, "a": a,
-                  "semt": semt.get(a), "pk": [p for p, _ in ptt_kod[a].most_common()], "kaynak": ["ptt"]})
+                  "semt": semt.get(a), "pk": [p for p, _ in ptt_kod[a].most_common()], "kaynak": ["ptt"],
+                  "ptt_adi": set(ptt_ad[a])})
 
 # Son çare (posta kodu boş kalmaz): 1) aynı ilçede eşi bulunmamış tek PTT mahallesi ile zayıf benzerlik,
 # 2) aynı belde / ilçe ve türdeki birimlerin en yaygın kodu. Kaynakta "tahmini" olarak işaretlenir.
@@ -350,6 +403,7 @@ for c in bos:
     if puan and puan[0][0] >= 0.75 and (len(puan) == 1 or puan[0][0] - puan[1][0] >= 0.15):
         c["pk"] = [p for p, _ in ptt_kod[puan[0][1]].most_common()]
         c["kaynak"].append("ptt-benzer-ad-zayif")
+        c["ptt_adi"] |= ptt_ad[puan[0][1]]
         kullanilan.add(puan[0][1])
         zayif_eslesen.add(puan[0][1])
         zayif_cift.append((c["il"], c["ilce"], c["ad"], puan[0][1][3], round(puan[0][0], 2), c["pk"][0]))
@@ -387,7 +441,7 @@ for satir in (KAYNAK / "kktc-posta-kodlari.txt").read_text(encoding="utf-8").spl
     ilce = {"GAZİ MAĞUSA": "GAZİMAĞUSA"}.get(re.sub(r"\s+", " ", ilce), ilce)  # resmî yazım
     tur = "köy" if ust(birim).endswith(("KÖYÜ", "KÖY")) else "mahalle"
     ad = EKLER.sub("", ust(birim)).strip()
-    kktc.append({"ilce": ilce, "bucak": bucak, "tur": tur, "ad": ad, "pk": pk})
+    kktc.append({"ilce": ilce, "bucak": bucak, "tur": tur, "ad": ad, "pk": pk, "ham": re.sub(r"\s+", " ", birim.strip())})
 eski_ad = {}
 for m in re.finditer(r"\*\s*\[\[([^\]|]+)(?:\|([^\]]+))?\]\]\s*(?:-\s*([^\n]+))?", (KAYNAK / "kktc-wikitext.txt").read_text(encoding="utf-8")):
     yeni = (m.group(2) or m.group(1)).split(" - ")[0].strip()
@@ -397,7 +451,7 @@ for m in re.finditer(r"\*\s*\[\[([^\]|]+)(?:\|([^\]]+))?\]\]\s*(?:-\s*([^\n]+))?
 for k in kktc:
     cikti.append({"ulke": "KKTC", "il": k["ilce"], "ilce": k["bucak"], "belde": None, "tur": k["tur"], "ad": k["ad"],
                   "koy": None, "semt": k["bucak"], "pk": [k["pk"]], "kaynak": ["kktc-posta"],
-                  "eski_ad": eski_ad.get(anahtar(k["ad"]))})
+                  "eski_ad": eski_ad.get(anahtar(k["ad"])), "ptt_adi": {k["ham"]}})
 
 # ── 6. Yaz ──────────────────────────────────────────────────────────────────
 def ad_duzenle(ad: str, tur: str) -> str:
@@ -423,6 +477,7 @@ def kayit(c: dict) -> dict:
         "posta_kodu": c["pk"][0] if c["pk"] else None,
         "diger_posta_kodlari": c["pk"][1:] or None,
         "eski_ad": c.get("eski_ad"),
+        "ptt_adi": " | ".join(sorted(c.get("ptt_adi") or [])) or None,
         "kaynak": c["kaynak"],
     }
 
@@ -430,15 +485,74 @@ def kayit(c: dict) -> dict:
 SIRA = {"mahalle": 0, "köy": 1, "köy mahallesi": 2, "bağlı": 3}
 tum = sorted((kayit(c) for c in cikti), key=lambda r: (r["ulke"] != "TR", r["plaka"] or "99", alt(r["il"]), alt(r["ilce"]),
                                                        SIRA[r["tur"]], alt(r["koy"] or ""), alt(r["ad"])))
-# Birebir aynı satırlar (ülke, il, ilçe, belde, tür, köy, ad) tek kayda indirilir.
-gorulen = set()
+# PTT yazım hatası düzeltme: ülke genelinde çok yaygın bir addan tek harf farklı, nadir PTT yazımı
+# ("CUMHURRİYET" → Cumhuriyet). Yerleşim Adı düzeltilir; PTT Adı sütunu PTT yazımını aynen korur.
+SAPKALI = {frozenset(p) for p in ("uü", "sş", "cç", "oö", "gğ", "iı")}
+
+
+def tek_harf_farkli(x: str, y: str) -> bool:
+    """x (PTT yazımı) ile y (yaygın ad) arasında tek bir YAZIM HATASI türünde fark var mı?
+    İzin verilen: çift harf (cumhurriyet), Türkçe harf (hurriyet / karsıyaka), sonda eksik / fazla harf (yeşilyur),
+    boşluk (orta köy). İlk harf farkı (çerkez / merkez) ve diğer harf değişimleri düzeltilmez."""
+    if abs(len(x) - len(y)) > 1 or x == y:
+        return False
+    i = 0
+    while i < min(len(x), len(y)) and x[i] == y[i]:
+        i += 1
+    if i == 0:
+        return False
+    if len(x) == len(y):  # değişim: yalnız Türkçe harf çifti
+        return x[i + 1:] == y[i + 1:] and frozenset((x[i], y[i])) in SAPKALI
+    uzun, kisa = (x, y) if len(x) > len(y) else (y, x)
+    if uzun[i + 1:] != kisa[i:]:
+        return False
+    fazla = uzun[i]
+    return fazla == " " or i == len(kisa) or fazla == uzun[i - 1]  # boşluk, sonda harf, çift harf
+
+
+ad_sikligi = Counter(alt(r["ad"]) for r in tum if r["ulke"] == "TR")
+yaygin_adlar = defaultdict(list)
+for ad, n in ad_sikligi.items():
+    if n >= 100 and len(ad) >= 6:
+        yaygin_adlar[len(ad)].append(ad)
+duzeltilen = []
+for r in tum:
+    if r["kaynak"] != ["ptt"] or ad_sikligi[alt(r["ad"])] > 2 or len(r["ad"]) < 6:
+        continue
+    x = alt(r["ad"])
+    adaylar = [y for n in (len(x) - 1, len(x), len(x) + 1) for y in yaygin_adlar.get(n, ()) if tek_harf_farkli(x, y)]
+    if len(adaylar) == 1:
+        duzeltilen.append((r["il"], r["ilce"], r["koy"] or "", r["ad"], baslik(adaylar[0])))
+        r["ad"] = baslik(adaylar[0])
+        r["kaynak"] = r["kaynak"] + ["ad-duzeltildi"]
+
+# Birebir aynı satırlar (ülke, il, ilçe, belde, tür, köy, ad) tek kayda indirilir. İçişleri'nin kendi listesinde
+# aynı ilçede aynı adla iki ayrı birim varsa (resmî kayıt) ikisi de korunur; PTT yazımları kaybolmaz.
+gorulen = {}
 tekil = []
+icisleri_cift = []
 for r in tum:
     anah = (r["ulke"], r["il"], r["ilce"], r["belde"], r["tur"], r["koy"], alt(r["ad"]))
-    if anah in gorulen:
+    ilk = gorulen.get(anah)
+    if ilk is None:
+        gorulen[anah] = r
+        tekil.append(r)
         continue
-    gorulen.add(anah)
-    tekil.append(r)
+    if "icisleri" in ilk["kaynak"] and "icisleri" in r["kaynak"]:
+        if (ilk["ptt_adi"] or "") != (r["ptt_adi"] or ""):  # PTT ayrı birim olarak tanıyor (ör. Efeler'deki iki Yeniköy)
+            tekil.append(r)
+            continue
+        # İçişleri aynı birimi iki kez listelemiş; PTT'de tek karşılık: tek satır, kaynakta işaretli.
+        icisleri_cift.append((r["il"], r["ilce"], r["tur"], r["ad"], r["koy"] or "", r["ptt_adi"] or ""))
+        if "icisleri-iki-kez" not in ilk["kaynak"]:
+            ilk["kaynak"] = ilk["kaynak"] + ["icisleri-iki-kez"]
+        continue
+    hedef, diger = (r, ilk) if "icisleri" in r["kaynak"] else (ilk, r)
+    adlar = set(filter(None, (ilk["ptt_adi"] or "").split(" | "))) | set(filter(None, (r["ptt_adi"] or "").split(" | ")))
+    hedef["ptt_adi"] = " | ".join(sorted(adlar)) or None
+    if hedef is r:
+        tekil[tekil.index(ilk)] = r
+        gorulen[anah] = r
 birebir_mukerrer = len(tum) - len(tekil)
 tum = tekil
 for i, r in enumerate(tum, 1):
@@ -453,6 +567,9 @@ sayilar = {
     "semt_var": sum(1 for r in tum if r["semt"]),
     "turetilen": dict(turetilen),
     "birebir_mukerrer_dusulen": birebir_mukerrer,
+    "ptt_yazim_duzeltilen": len(duzeltilen),
+    "ayni_ad_ptt_ile_ayrilan": len(ayni_ad_ayrilan),
+    "icisleri_ayni_ad_iki_kayit": len(icisleri_cift),
 }
 meta = {
     "ad": "Türkiye ve KKTC yerleşim yerleri ve posta kodları",
@@ -471,18 +588,20 @@ meta = {
         "semt": "PTT semt / bucak / belde adı", "belde": "İçişleri'ne göre mahallenin bağlı olduğu belde",
         "tur": "mahalle | köy | köy mahallesi (PTT) | bağlı (İçişleri: mezra, mevki)", "koy": "köy mahallesinin / bağlı birimin köyü", "posta_kodu": "en yaygın posta kodu",
         "diger_posta_kodlari": "aynı birimde geçen diğer posta kodları (sokak bazında)",
-        "eski_ad": "KKTC eski (Rumca) adı", "kaynak": "kaydı besleyen kaynaklar",
+        "eski_ad": "KKTC eski (Rumca) adı",
+        "ptt_adi": "PTT'deki (KKTC: Posta Dairesi listesindeki) birebir yazım; birden çoksa ' | ' ile ayrılır",
+        "kaynak": "kaydı besleyen kaynaklar",
     },
     "sayilar": sayilar,
 }
 (CIKTI / "turkiye-kktc-yerlesim.json").write_text(json.dumps({"_meta": meta, "kayitlar": tum}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 BASLIKLAR = ["Sıra No", "Ülke", "Plaka Kodu", "İl", "İlçe", "Semt", "Belde", "Tür", "Yerleşim Adı", "Bağlı Olduğu Köy",
-             "Posta Kodu", "Diğer Posta Kodları", "Eski Adı", "Kaynak"]
+             "Posta Kodu", "PTT Adı", "Diğer Posta Kodları", "Eski Adı", "Kaynak"]
 
 
 def satir(r: dict) -> list:
     return [r["id"], r["ulke"], r["plaka"], r["il"], r["ilce"], r["semt"], r["belde"], TUR_ADI[r["tur"]], r["ad"], r["koy"],
-            r["posta_kodu"], " ".join(r["diger_posta_kodlari"] or []) or None, r["eski_ad"], " ".join(r["kaynak"])]
+            r["posta_kodu"], r["ptt_adi"], " ".join(r["diger_posta_kodlari"] or []) or None, r["eski_ad"], " ".join(r["kaynak"])]
 
 
 TUR_ADI = {"mahalle": "Mahalle", "köy": "Köy", "köy mahallesi": "Köy Mahallesi", "bağlı": "Bağlı Birim"}
@@ -528,7 +647,7 @@ with open(CIKTI / "turkiye-kktc-yerlesim.sql", "w", encoding="utf-8", newline="\
             ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_turkish_ci;\n\n")
     f.write("CREATE TABLE yerlesimler (\n  id INT UNSIGNED PRIMARY KEY,\n  ilce_id SMALLINT UNSIGNED NOT NULL,\n  semt VARCHAR(80) NULL,\n"
             "  belde VARCHAR(80) NULL,\n  tur ENUM('mahalle','köy','köy mahallesi','bağlı') NOT NULL,\n  ad VARCHAR(120) NOT NULL,\n  koy VARCHAR(120) NULL,\n"
-            "  posta_kodu CHAR(5) NULL,\n  diger_posta_kodlari VARCHAR(120) NULL,\n  eski_ad VARCHAR(120) NULL,\n  kaynak VARCHAR(80) NOT NULL,\n"
+            "  posta_kodu CHAR(5) NULL,\n  ptt_adi VARCHAR(400) NULL COMMENT 'PTT / KKTC Posta Dairesi yazımı',\n  diger_posta_kodlari VARCHAR(120) NULL,\n  eski_ad VARCHAR(120) NULL,\n  kaynak VARCHAR(80) NOT NULL,\n"
             "  KEY ix_ilce_ad (ilce_id, ad),\n  KEY ix_posta_kodu (posta_kodu),\n  CONSTRAINT fk_yerlesim_ilce FOREIGN KEY (ilce_id) REFERENCES ilceler (id)\n"
             ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_turkish_ci;\n\n")
     f.write("INSERT INTO iller (id, ulke, plaka, ad) VALUES\n" + ",\n".join(
@@ -537,10 +656,10 @@ with open(CIKTI / "turkiye-kktc-yerlesim.sql", "w", encoding="utf-8", newline="\
         f"({i}, {il_id[(u, il)][0]}, {q(a)})" for (u, il, a), i in ilce_id.items()) + ";\n\n")
     for bas in range(0, len(tum), 1000):
         parca = tum[bas:bas + 1000]
-        f.write("INSERT INTO yerlesimler (id, ilce_id, semt, belde, tur, ad, koy, posta_kodu, diger_posta_kodlari, eski_ad, kaynak) VALUES\n")
+        f.write("INSERT INTO yerlesimler (id, ilce_id, semt, belde, tur, ad, koy, posta_kodu, ptt_adi, diger_posta_kodlari, eski_ad, kaynak) VALUES\n")
         f.write(",\n".join(
             f"({r['id']}, {ilce_id[(r['ulke'], r['il'], r['ilce'])]}, {q(r['semt'])}, {q(r['belde'])}, {q(r['tur'])}, {q(r['ad'])}, {q(r['koy'])}, "
-            f"{q(r['posta_kodu'])}, {q(' '.join(r['diger_posta_kodlari'] or []) or None)}, {q(r['eski_ad'])}, {q(' '.join(r['kaynak']))})"
+            f"{q(r['posta_kodu'])}, {q(r['ptt_adi'])}, {q(' '.join(r['diger_posta_kodlari'] or []) or None)}, {q(r['eski_ad'])}, {q(' '.join(r['kaynak']))})"
             for r in parca) + ";\n")
 
 # ── XLSX: kodlar metin (baştaki sıfır korunur), başlık sabit, süzgeç açık ──────
@@ -553,13 +672,13 @@ ws.title = "Yerleşimler"
 ws.append(BASLIKLAR)
 for r in tum:
     ws.append(satir(r))
-for sutun in ("C", "K", "L"):
+for sutun in ("C", "K", "M"):
     for hucre in ws[sutun][1:]:
         hucre.number_format = "@"
 for h in ws[1]:
     h.font = Font(bold=True, color="FFFFFF")
     h.fill = PatternFill("solid", fgColor="003566")
-for harf, gen in zip("ABCDEFGHIJKLMN", (8, 7, 7, 16, 18, 18, 16, 9, 28, 20, 11, 18, 14, 22)):
+for harf, gen in zip("ABCDEFGHIJKLMNO", (8, 7, 7, 16, 18, 18, 16, 13, 28, 20, 11, 34, 18, 14, 30)):
     ws.column_dimensions[harf].width = gen
 ws.freeze_panes = "A2"
 ws.auto_filter.ref = ws.dimensions
@@ -585,6 +704,15 @@ with open(CIKTI / "eslesme-raporu.txt", "w", encoding="utf-8") as f:
     for r in tum:
         if "tahmini-ilce" in r["kaynak"]:
             f.write(f"{r['il']} / {r['ilce']} / {r['tur']} / {r['ad']} / {r['koy'] or ''} → {r['posta_kodu']}\n")
+    f.write("\n== PTT yazım hatası düzeltilen adlar (il / ilçe / köy / PTT yazımı → düzeltilmiş ad)\n")
+    for x in duzeltilen:
+        f.write(" / ".join(map(str, x)) + "\n")
+    f.write("\n== İçişleri'nde aynı ilçede aynı adlı birimler, PTT adıyla ayrıldı (il / ilçe / ad / PTT adı)\n")
+    for x in ayni_ad_ayrilan:
+        f.write(" / ".join(map(str, x)) + "\n")
+    f.write("\n== İçişleri listesinde aynı ilçede aynı adla iki kez geçen, PTT'de tek karşılığı olan birimler (tek satıra indirildi; kaynak: icisleri-iki-kez)\n")
+    for x in icisleri_cift:
+        f.write(" / ".join(map(str, x)) + "\n")
     f.write("\n== Zayıf benzerlikle eşleşenler (İçişleri adı → PTT adı, benzerlik, kod)\n")
     for cift in zayif_cift:
         f.write(" / ".join(map(str, cift)) + "\n")

@@ -1,10 +1,10 @@
 {
- "toplam": 94796,
+ "toplam": 94782,
  "tr": {
-  "mahalle": 34563,
-  "köy": 18245,
+  "mahalle": 34544,
+  "köy": 18244,
   "köy mahallesi": 18165,
-  "bağlı": 23552
+  "bağlı": 23558
  },
  "kktc": {
   "mahalle": 98,
@@ -16,8 +16,8 @@
   "bağlı": 23569
  },
  "posta_kodu_yok": 0,
- "yalniz_ptt": 20536,
- "semt_var": 87376,
+ "yalniz_ptt": 20511,
+ "semt_var": 87373,
  "turetilen": {
   "köy posta kodu (köy mahallelerinden)": 4956,
   "köy posta kodu (ilçe ortak kodu)": 50,
@@ -25,11 +25,14 @@
   "bağlı posta kodu": 15940,
   "bağlı semt": 15279,
   "mahalle posta kodu (zayıf benzerlik)": 77,
-  "mahalle posta kodu (tahmini, ilçe / belde en yaygın kod)": 459,
-  "köy posta kodu (tahmini, ilçe / belde en yaygın kod)": 40,
+  "mahalle posta kodu (tahmini, ilçe / belde en yaygın kod)": 457,
+  "köy posta kodu (tahmini, ilçe / belde en yaygın kod)": 38,
   "bağlı posta kodu (tahmini, ilçe / belde en yaygın kod)": 44
  },
- "birebir_mukerrer_dusulen": 40
+ "birebir_mukerrer_dusulen": 29,
+ "ptt_yazim_duzeltilen": 6,
+ "ayni_ad_ptt_ile_ayrilan": 42,
+ "icisleri_ayni_ad_iki_kayit": 28
 }
 
 == Tahmini posta kodu verilen kayıtlar (PTT'de karşılığı bulunamadı; ilçe / belde en yaygın kodu)
@@ -82,7 +85,6 @@ Artvin / Hopa / mahalle / Yeni /  → 08600
 Artvin / Merkez / mahalle / Yenimahalle /  → 08010
 Aydın / Bozdoğan / mahalle / Asmaköy /  → 09760
 Aydın / Bozdoğan / mahalle / Yakaköy /  → 09760
-Aydın / Efeler / mahalle / Yeniköy /  → 09010
 Aydın / Karacasu / mahalle / Yukarı Görle /  → 09370
 Aydın / Kuyucak / mahalle / Merkez Beşeylül /  → 09930
 Aydın / Çine / mahalle / Umur /  → 09500
@@ -453,7 +455,6 @@ Tekirdağ / Muratlı / mahalle / Turan /  → 59700
 Tekirdağ / Süleymanpaşa / mahalle / Naip Köy /  → 59070
 Tekirdağ / Çorlu / mahalle / Sinandede /  → 59850
 Tokat / Erbaa / mahalle / Koçak /  → 60540
-Tokat / Erbaa / köy / Fındıcak /  → 60502
 Tokat / Merkez / mahalle / Yenimahalle /  → 60100
 Tokat / Niksar / mahalle / Haydarbey /  → 60600
 Tokat / Niksar / köy / Sorkun /  → 60602
@@ -574,6 +575,88 @@ Düzce / Merkez / mahalle / Kirazlı /  → 81630
 Düzce / Merkez / mahalle / Otluoğlu /  → 81630
 Düzce / Merkez / mahalle / Ozanlar /  → 81630
 Düzce / Merkez / mahalle / Taşköprü /  → 81630
+
+== PTT yazım hatası düzeltilen adlar (il / ilçe / köy / PTT yazımı → düzeltilmiş ad)
+Adıyaman / Besni / Üçgöz / Cumhurriyet / Cumhuriyet
+Ağrı / Tutak / Soğukpınar / Hurriyet / Hürriyet
+Kastamonu / İnebolu / Sakalar / Ortaköyü / Ortaköy
+Muş / Merkez /  / Karsıyaka / Karşıyaka
+Sinop / Dikmen / Göllü / Orta Köy / Ortaköy
+Aksaray / Merkez / Sapmaz / Yeşilyur / Yeşilyurt
+
+== İçişleri'nde aynı ilçede aynı adlı birimler, PTT adıyla ayrıldı (il / ilçe / ad / PTT adı)
+AKSARAY / MERKEZ / İSTİKLAL / İSTİKLAL MAH.
+AKSARAY / MERKEZ / İSTİKLAL / ARATOL İSTİKLAL MAH.
+AYDIN / EFELER / YENİKÖY / DALAMA BUCAĞI YENİKÖY MAH.
+AYDIN / EFELER / YENİKÖY / MERKEZ BUCAĞI YENİKÖY MAH.
+BARTIN / MERKEZ / MERKEZ / MERKEZ MAH.
+BARTIN / MERKEZ / MERKEZ / YUKARI MAHELLE MERKEZ TOSYANI MAH.
+BİNGÖL / MERKEZ / ÇAY / ÇAY MAH.
+BİNGÖL / MERKEZ / ÇAY / ATÇAYIR MAH.
+DÜZCE / MERKEZ / CUMHURİYET / CUMHURİYET MAH.
+DÜZCE / MERKEZ / CUMHURİYET / CUMHURİYET OSB2 MAH.
+ELAZIĞ / MERKEZ / YENİ / YENİ MAH.
+ELAZIĞ / MERKEZ / YENİ MAHALLE / YENİMAH MAH.
+ELAZIĞ / MERKEZ / MERKEZ / MERKEZ MAH.
+ELAZIĞ / MERKEZ / MERKEZ / GÖLARDI(MERKEZ) MAH.
+GİRESUN / BULANCAK / MERKEZ / MERKEZ MAH.
+GİRESUN / BULANCAK / MERKEZ / CAMİ YANI MERKEZ MAH.
+KÜTAHYA / TAVŞANLI / MERKEZ / BALIKÖY-MERKEZ MAH.
+KÜTAHYA / TAVŞANLI / MERKEZ / TUNÇBİLEK MERKEZ MAH.
+NEVŞEHİR / AVANOS / ORTA / ORTA MAH.
+NEVŞEHİR / AVANOS / ORTA / ORTA KÜME MAH.
+NEVŞEHİR / AVANOS / ORTA / ORTAOKUL KÜMESİ MAH.
+NEVŞEHİR / AVANOS / YENİ / YENİ MAH.
+NEVŞEHİR / AVANOS / YENİ / YENİSOY MAH.
+ORDU / ALTINORDU / GÜZELYALI / GÜZELYALI MAH.
+ORDU / ALTINORDU / GÜZELYALI / GÜZELYALI (UZUNİSA) MAH.
+RİZE / ÇAYELİ / MERKEZ / MERKEZ MAH.
+RİZE / ÇAYELİ / MERKEZ / MERKEZ KAKŞİOĞLU MAH.
+YOZGAT / SARAYKENT / MERKEZ / DEDEFAKILI MERKEZ MAH.
+YOZGAT / SARAYKENT / MERKEZ / MERKEZ MAH.
+ZONGULDAK / EREĞLİ / MERKEZ / MERKEZ MAH.
+ZONGULDAK / EREĞLİ / MERKEZ / MERKEZ(GANA) MAH.
+ZONGULDAK / MERKEZ / MERKEZ / MERKEZ MAH.
+ZONGULDAK / MERKEZ / MERKEZ / MERKEZ GERDEK MAH.
+ZONGULDAK / MERKEZ / MERKEZ / MERKEZ KELLER MAH.
+ADIYAMAN / MERKEZ / KUYUCAK / KUYUCAK KÖYÜ
+ADIYAMAN / MERKEZ / KUYUCAK / BAĞPINAR KUYUCAK KÖYÜ
+ERZİNCAN / REFAHİYE / KALKANCI / KALKANCI KÖYÜ
+ERZİNCAN / REFAHİYE / KALKANCI / MERKEZ KALKANCI KÖYÜ
+SİVAS / SUŞEHRİ / KARAAĞAÇ / KARAAĞAÇ KÖYÜ
+SİVAS / SUŞEHRİ / KARAAĞAÇ / GÖKÇEKENT KARAAĞAÇ KÖYÜ
+TOKAT / ERBAA / FINDICAK / TÜRKFINDICAK KÖYÜ
+TOKAT / ERBAA / FINDICAK / ÇERKEZFINDICAK KÖYÜ
+
+== İçişleri listesinde aynı ilçede aynı adla iki kez geçen, PTT'de tek karşılığı olan birimler (tek satıra indirildi; kaynak: icisleri-iki-kez)
+Afyonkarahisar / Şuhut / bağlı / Çanakpınar / Koçyatağı / 
+Bingöl / Adaklı / bağlı / Kavak / Sevkar / 
+Çankırı / Çerkeş / bağlı / Hacılar Yaylası / Hacılar / 
+Giresun / Çamoluk / bağlı / Yukarı / Daldibi / 
+Giresun / Çamoluk / bağlı / Gölgeli / Usluca / 
+Gümüşhane / Merkez / bağlı / Konak / Çorak / 
+Hatay / Kırıkhan / mahalle / Aygırgölü /  / AYGIRGÖLÜ MAH.
+Hatay / Kırıkhan / mahalle / Camuzkışlası /  / CAMUZKIŞLASI MAH.
+Hatay / Kırıkhan / mahalle / Demirkonak /  / DEMİRKONAK MAH.
+Hatay / Kırıkhan / mahalle / Gültepe /  / GÜLTEPE MAH.
+Hatay / Kırıkhan / mahalle / İncirli /  / İNCİRLİ MAH.
+Hatay / Kırıkhan / mahalle / Kaletepe /  / KALETEPE MAH.
+Hatay / Kırıkhan / mahalle / Yalangoz /  / YALANGOZ MAH.
+Hatay / Kırıkhan / mahalle / Çamsarı /  / ÇAMSARI MAH.
+Kastamonu / Merkez / köy / Emirler /  / 
+Kastamonu / Merkez / köy / İsmailli /  / 
+Kastamonu / Merkez / köy / Kıyık /  / 
+Kastamonu / Merkez / köy / Çavundur /  / 
+Nevşehir / Merkez / mahalle / Bahçelievler /  / BAHÇELİEVLER MAH.
+Nevşehir / Merkez / mahalle / Esentepe /  / ESENTEPE MAH.
+Nevşehir / Merkez / mahalle / Yeni /  / YENİ MAH.
+Ordu / Mesudiye / mahalle / Kayadibi /  / KAYADİBİ MAH.
+Tunceli / Nazımiye / bağlı / Uzuntarla / Büyükyurt / 
+Uşak / Merkez / bağlı / Horuzcular / Paçacılar / 
+Yozgat / Çandır / mahalle / Eşrefpaşa /  / EŞREFPAŞA MAH.
+Bartın / Ulus / bağlı / Kocalı / Aşağıçamlı / 
+Karabük / Yenice / bağlı / Hasanbeyoğlu / Satuk / 
+Karabük / Yenice / bağlı / Atcılar / Tirköy / 
 
 == Zayıf benzerlikle eşleşenler (İçişleri adı → PTT adı, benzerlik, kod)
 ADANA / CEYHAN / AYTEMUROĞLU / AYDEMİROĞLU / 0.83 / 01920
@@ -1893,7 +1976,6 @@ ADIYAMAN / MERKEZ / mahalle / ASLANOĞLU /
 ADIYAMAN / MERKEZ / mahalle / ASMALI / 
 ADIYAMAN / MERKEZ / mahalle / ATATÜRK / 
 ADIYAMAN / MERKEZ / mahalle / BAYRANLI / 
-ADIYAMAN / MERKEZ / köy / BAĞPINARKUYUCAK / 
 ADIYAMAN / MERKEZ / mahalle / BAĞTEPE / 
 ADIYAMAN / MERKEZ / mahalle / BAHÇE / 
 ADIYAMAN / MERKEZ / mahalle / BALABAN / 
@@ -2108,3 +2190,4 @@ AFYONKARAHİSAR / ÇAY / köy mahallesi / MİLLİEGEMENLİK / AKKONAK
 AFYONKARAHİSAR / ÇAY / köy mahallesi / ORTA / EBER
 AFYONKARAHİSAR / ÇAY / köy mahallesi / TEKKE / EBER
 AFYONKARAHİSAR / ÇAY / köy mahallesi / YAYLA / İNLİ
+AFYONKARAHİSAR / ÇAY / köy mahallesi / YENİ / EBER

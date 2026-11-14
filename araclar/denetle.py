@@ -38,10 +38,17 @@ for r in k:
     if r["ulke"] == "TR" and not re.fullmatch(r"\d{2}", r["plaka"] or ""):
         hatalar["plaka eksik"].append(r)
 
-anah = Counter((r["ulke"], r["il"], r["ilce"], r["belde"], r["tur"], r["koy"], r["ad"].casefold()) for r in k)
-for a, n in anah.items():
-    if n > 1:
-        hatalar["birebir mükerrer"].append({"anahtar": a, "adet": n})
+grup = defaultdict(list)
+for r in k:
+    grup[(r["ulke"], r["il"], r["ilce"], r["belde"], r["tur"], r["koy"], r["ad"].casefold())].append(r)
+for a, v in grup.items():
+    if len(v) < 2:
+        continue
+    if all("icisleri" in r["kaynak"] for r in v):
+        ayri = len({r.get("ptt_adi") for r in v}) == len(v)
+        hatalar["bilgi: İçişleri'nde aynı adla iki ayrı birim" + (" (PTT adıyla ayrışıyor)" if ayri else " (PTT'de tek kayıt)")].append({"anahtar": a, "adet": len(v)})
+    else:
+        hatalar["birebir mükerrer"].append({"anahtar": a, "adet": len(v)})
 
 # Bağlı birimin köyü aynı ilçede köy ya da mahalle olarak bulunmalı
 ust = {(r["il"], r["ilce"], r["ad"].casefold()) for r in k if r["tur"] in ("köy", "mahalle")}
@@ -61,6 +68,63 @@ if len(sys.argv) > 2:
     for r in k:
         if r["ulke"] == "TR" and r["posta_kodu"] not in ilce_kod[(r["il"].translate(BB).upper(), r["ilce"].translate(BB).upper())]:
             hatalar["kod canlı PTT'de bu ilçede yok"].append(r)
+
+# EKSİKSİZLİK 1: canlı PTT'deki her (il, ilçe, birim adı) veritabanında "PTT'deki Adı" olarak bulunmalı.
+if len(sys.argv) > 2:
+    BB = str.maketrans({"i": "İ", "ı": "I"})
+    db_adlar = defaultdict(set)
+    for r in k:
+        if r["ulke"] == "TR" and r.get("ptt_adi"):
+            for ad in r["ptt_adi"].split(" | "):
+                db_adlar[(r["il"].translate(BB).upper(), r["ilce"].translate(BB).upper())].add(ad)
+    ptt_toplam = 0
+    for il in ptt["iller"].values():
+        for ilce_ad, c in il["ilceler"].items():
+            for ad in c["mahalle"]:
+                ptt_toplam += 1
+                if not re.sub(r"[^\w]", "", ad):
+                    continue  # PTT'de adı boş kayıt
+                if ad.strip() not in db_adlar[(il["ad"], ilce_ad)]:
+                    hatalar["EKSİK: canlı PTT kaydı veritabanında yok"].append({"il": il["ad"], "ilce": ilce_ad, "ad": ad})
+    print(f"Canlı PTT birim sayısı: {ptt_toplam}")
+
+# EKSİKSİZLİK 2: İçişleri'nin her mahalle / köy / bağlı kaydı veritabanında bulunmalı (aynı adlılar adet olarak).
+if len(sys.argv) > 3:
+    import csv
+    KD = Path(sys.argv[3])
+    BB = str.maketrans({"i": "İ", "ı": "I"})
+
+    def an(s):
+        s = (s or "").translate(BB).upper().strip()
+        s = re.sub(r"\s+(MAHALLESİ|MAH\.?)$", "", s)
+        return re.sub(r"[^0-9A-ZÇĞİÖŞÜÂÎÛ]", "", s)
+
+    def satirlar(ad):
+        with open(KD / ad, encoding="utf-8", newline="") as f:
+            for x in csv.reader(f):
+                if x and x[0].strip().isdigit():
+                    yield [y.strip() for y in x if y.strip()]
+
+    ic = Counter()
+    for x in satirlar("icisleri-mahalle-GenelMahalleListesi.csv"):
+        yol = [p.strip() for p in x[2].split("->")]
+        ic[(an(yol[0]), "MERKEZ" if len(yol) == 2 else an(yol[1]), "mahalle", an(x[1]), "")] += 1
+    for x in satirlar("icisleri-koy.csv"):
+        ic[(an(x[3]), an(x[2]), "köy", an(x[1]), "")] += 1
+    for x in satirlar("icisleri-bagli.csv"):
+        yol = [p.strip() for p in x[2].split("->")]
+        if len(yol) == 3:
+            koy = "İLÇEMERKEZİ" if yol[2].endswith("MERKEZİ") else an(yol[2])
+            ic[(an(yol[0]), an(yol[1]), "bağlı", an(x[1]), koy)] += 1
+    db = Counter()
+    for r in k:
+        if r["ulke"] == "TR" and "icisleri" in r["kaynak"]:
+            # İçişleri'nin iki kez listelediği (PTT'de tek) birim tek satıra indirildi: iki kayıt sayılır
+            db[(an(r["il"]), an(r["ilce"]), r["tur"], an(r["ad"]), an(r["koy"]) if r["tur"] == "bağlı" else "")] += 2 if "icisleri-iki-kez" in r["kaynak"] else 1
+    for anah, n in ic.items():
+        if db[anah] < n:
+            hatalar["EKSİK: İçişleri kaydı veritabanında yok"].append({"anahtar": anah, "adet": n - db[anah]})
+    print(f"İçişleri kayıt sayısı: {sum(ic.values())}")
 
 il_tr = {r["il"] for r in k if r["ulke"] == "TR"}
 ilce_tr = {(r["il"], r["ilce"]) for r in k if r["ulke"] == "TR"}
