@@ -1,0 +1,634 @@
+{
+ "toplam": 102647,
+ "tr": {
+  "mahalle": 34326,
+  "köy": 18244,
+  "köy mahallesi": 26237,
+  "bağlı": 23569
+ },
+ "kktc": {
+  "mahalle": 98,
+  "köy": 173
+ },
+ "icisleri_kaynak": {
+  "mahalle": 32328,
+  "köy": 18209,
+  "bağlı": 23569
+ },
+ "posta_kodu_yok": 328,
+ "yalniz_ptt": 28270,
+ "semt_var": 93262,
+ "turetilen": {
+  "köy posta kodu (köy mahallelerinden)": 5393,
+  "mahalle posta kodu (aynı ilde başka ilçe)": 7,
+  "köy posta kodu (aynı ilde başka ilçe)": 5,
+  "köy posta kodu (ilçe ortak kodu)": 44,
+  "belde mahallesi posta kodu": 42,
+  "bağlı posta kodu": 23521,
+  "bağlı semt": 22199
+ }
+}
+
+== Posta kodu bulunamayan İçişleri kayıtları (ilk 300)
+ADANA / ÇUKUROVA / mahalle / 100.YIL / 
+ADANA / KARATAŞ / mahalle / GÖLYAKA / 
+ADANA / KARATAŞ / mahalle / KONAKLI / 
+ADANA / KOZAN / mahalle / CERİT / 
+ADANA / SEYHAN / mahalle / İKİBİNEVLER / 
+ADIYAMAN / MERKEZ / mahalle / PETROL / 
+ADIYAMAN / MERKEZ / mahalle / YENİMAHALLE / 
+ADIYAMAN / GÖLBAŞI / mahalle / 6 ŞUBAT / 
+AFYONKARAHİSAR / EMİRDAĞ / mahalle / KACERLİ / 
+AFYONKARAHİSAR / EVCİLER / mahalle / ATATÜRK / 
+AĞRI / HAMUR / mahalle / MERKEZ / 
+AKSARAY / MERKEZ / mahalle / BAHÇELİ (ARATOL) / 
+AKSARAY / MERKEZ / mahalle / İSTİKLAL ARATOL / 
+AMASYA / SULUOVA / mahalle / E.ÇELTEK / 
+ANKARA / BALA / mahalle / G.O.PAŞA / 
+ANKARA / BALA / mahalle / BÜYÜKBIYIK / 
+ANKARA / BALA / mahalle / AFŞAR DEDEBEY / 
+ANKARA / ÇAMLIDERE / mahalle / TOKAR / 
+ANKARA / ÇUBUK / mahalle / ÇATKÖY / 
+ANKARA / KIZILCAHAMAM / mahalle / İĞCİLER / 
+ANKARA / YENİMAHALLE / mahalle / ÇAKIRLAR / 
+ANKARA / YENİMAHALLE / mahalle / CUMHURİYET / 
+ANTALYA / ALANYA / mahalle / ŞEYHLER / 
+ANTALYA / KAŞ / mahalle / MERKEZ / 
+ANTALYA / KAŞ / mahalle / AĞILLI / 
+ANTALYA / KAŞ / mahalle / KILIÇLI / 
+ANTALYA / KAŞ / mahalle / KILIÇLIYAYLA / 
+ANTALYA / KORKUTELİ / mahalle / YALINLIGEDİĞİ / 
+ANTALYA / MANAVGAT / mahalle / YUKARIHİSAR / 
+ARDAHAN / ÇILDIR / mahalle / ÇILDIR MERKEZ / 
+ARTVİN / HOPA / mahalle / YENİ / 
+ARTVİN / HOPA / mahalle / TAŞKÖPRÜ / 
+AYDIN / EFELER / mahalle / YENİKÖY / 
+AYDIN / EFELER / mahalle / YENİKÖY / 
+AYDIN / KUYUCAK / mahalle / MERKEZ BEŞEYLÜL / 
+BALIKESİR / BANDIRMA / mahalle / ALTIYÜZEVLER / 
+BALIKESİR / BANDIRMA / mahalle / ONYEDİEYLÜL / 
+BALIKESİR / EDREMİT / mahalle / KUVAYI MİLLİYE / 
+BALIKESİR / ERDEK / mahalle / ALAADDİN / 
+BALIKESİR / İVRİNDİ / mahalle / YEDİEYLÜL / 
+BALIKESİR / KARESİ / mahalle / I.ORUÇGAZİ / 
+BALIKESİR / KARESİ / mahalle / II. ORUÇGAZİ / 
+BALIKESİR / SINDIRGI / mahalle / DANAÇAYIRI / 
+BALIKESİR / SUSURLUK / mahalle / ESENTEPE / 
+BARTIN / MERKEZ / mahalle / UZUNÖZ / 
+BATMAN / MERKEZ / mahalle / BAŞAKŞEHİR / 
+BİLECİK / BOZÜYÜK / mahalle / BAHARÖZÜ / 
+BİNGÖL / MERKEZ / mahalle / ESENTEPE / 
+BİNGÖL / KİĞI / mahalle / ABAR / 
+BİTLİS / ADİLCEVAZ / mahalle / EVRENPAŞA / 
+BOLU / MENGEN / mahalle / HACIAHMETLER / 
+BOLU / MENGEN / mahalle / KONAKKÖY / 
+BOLU / MENGEN / mahalle / SAZLAR / 
+BURDUR / BUCAK / mahalle / CAMİ / 
+BURSA / İNEGÖL / mahalle / BEDRE / 
+BURSA / İNEGÖL / mahalle / ERİKLİ / 
+BURSA / MUDANYA / mahalle / YÜRÜKYENİCESİ / 
+BURSA / MUDANYA / mahalle / EYERCİ / 
+BURSA / ORHANELİ / mahalle / FİRUZKÖY / 
+BURSA / OSMANGAZİ / mahalle / ALATTİN / 
+BURSA / OSMANGAZİ / mahalle / DUMLUPINAR / 
+BURSA / YILDIRIM / mahalle / YETMİŞBEŞİNCİYIL / 
+ÇANAKKALE / MERKEZ / mahalle / BARIŞ / 
+ÇANKIRI / KURŞUNLU / mahalle / ÇAVUNDUR / 
+ÇANKIRI / ORTA / mahalle / NALTEPE / 
+ÇANKIRI / ORTA / mahalle / HAMAMÖNÜ / 
+ÇANKIRI / ORTA / mahalle / KANARYA / 
+ÇORUM / BOĞAZKALE / mahalle / YEKBAS / 
+ÇORUM / MERKEZ / mahalle / KARACAKÖY / 
+ÇORUM / MERKEZ / mahalle / KÖPRÜALAN / 
+ÇORUM / MERKEZ / mahalle / MELİKGAZİ / 
+ÇORUM / SUNGURLU / mahalle / ÇİFTLİK / 
+DENİZLİ / BULDAN / mahalle / 4 EYLÜL / 
+DENİZLİ / PAMUKKALE / mahalle / ONBEŞMAYIS / 
+DİYARBAKIR / BAĞLAR / mahalle / KULU / 
+DİYARBAKIR / SİLVAN / mahalle / ÇİFTLİÇEVRE / 
+DÜZCE / MERKEZ / mahalle / KİRAZLI / 
+DÜZCE / MERKEZ / mahalle / OTLUOĞLU / 
+DÜZCE / MERKEZ / mahalle / OZANLAR / 
+DÜZCE / MERKEZ / mahalle / TAŞKÖPRÜ / 
+EDİRNE / KEŞAN / mahalle / YENİMAHALLE / 
+ELAZIĞ / BASKİL / mahalle / DEMİRELLER / 
+ELAZIĞ / MERKEZ / mahalle / AŞAĞIDEMİRTAŞ / 
+ELAZIĞ / MERKEZ / mahalle / ŞAHİNKAYA / 
+ELAZIĞ / MERKEZ / mahalle / YEMİŞLİK / 
+ERZİNCAN / MERKEZ / mahalle / H.AHMET YESEVİ / 
+ERZİNCAN / MERKEZ / mahalle / YAYLABAŞI / 
+ERZİNCAN / MERKEZ / mahalle / ERTUĞRUL GAZI / 
+ERZURUM / AŞKALE / mahalle / 3 MART / 
+ERZURUM / AZİZİYE / mahalle / KAPILI / 
+ERZURUM / AZİZİYE / mahalle / OVACIK SÖĞÜTLÜ / 
+ESKİŞEHİR / ODUNPAZARI / mahalle / SULTANDERE 75. YIL / 
+GAZİANTEP / NURDAĞI / mahalle / KARŞIYAKA / 
+GAZİANTEP / NURDAĞI / mahalle / 6 ŞUBAT / 
+GAZİANTEP / ŞAHİNBEY / mahalle / ŞAHİNBEY / 
+GAZİANTEP / ŞAHİNBEY / mahalle / ESENTEPE BURÇ / 
+GAZİANTEP / ŞEHİTKAMİL / mahalle / YEŞİLOVA / 
+GİRESUN / ALUCRA / mahalle / HOCA AHMED YESEVİ / 
+GİRESUN / DERELİ / mahalle / MERKEZ / 
+GİRESUN / GÜCE / mahalle / FINDIKLI / 
+GÜMÜŞHANE / KELKİT / mahalle / KAŞ / 
+GÜMÜŞHANE / MERKEZ / mahalle / PİRAHMET / 
+GÜMÜŞHANE / MERKEZ / mahalle / KATMERKAYA / 
+GÜMÜŞHANE / MERKEZ / mahalle / KALEÖNÜ / 
+GÜMÜŞHANE / MERKEZ / mahalle / CUMHURİYET / 
+GÜMÜŞHANE / MERKEZ / mahalle / TÜRKMENLER / 
+HAKKARİ / ÇUKURCA / mahalle / DUTLUCA / 
+HAKKARİ / YÜKSEKOVA / mahalle / DİLEKLİ YAZILI / 
+HATAY / ARSUZ / mahalle / ÖZBEKİSTAN / 
+HATAY / HASSA / mahalle / NAHSENPAŞA / 
+HATAY / HASSA / mahalle / YOLÇATI / 
+HATAY / REYHANLI / mahalle / 15 TEMMUZ / 
+HATAY / REYHANLI / mahalle / YILDIZ / 
+HATAY / REYHANLI / mahalle / ZEYTİN DALI / 
+ISPARTA / MERKEZ / mahalle / YENİ YÜZYIL / 
+İSTANBUL / BEYOĞLU / mahalle / PİRİ MEHMET PAŞA / 
+İSTANBUL / ESENLER / mahalle / ŞEHİTLER / 
+İSTANBUL / ESENLER / mahalle / YEŞİL VADİ / 
+İZMİR / BAYRAKLI / mahalle / 100. YIL / 
+İZMİR / BERGAMA / mahalle / ÇAMTEPE / 
+İZMİR / BERGAMA / mahalle / TEĞELTİ / 
+İZMİR / ÇEŞME / mahalle / ONALTI EYLÜL / 
+İZMİR / KEMALPAŞA / mahalle / 8 EYLÜL / 
+İZMİR / KEMALPAŞA / mahalle / BAYOSB / 
+İZMİR / KONAK / mahalle / BİRİNCİ KADRİYE / 
+İZMİR / KONAK / mahalle / İKİNCİ KADRİYE / 
+İZMİR / KONAK / mahalle / ONDOKUZMAYIS / 
+İZMİR / MENEMEN / mahalle / EMİRALEM KIR / 
+İZMİR / MENEMEN / mahalle / KOYUNDERE ATATÜRK / 
+İZMİR / MENEMEN / mahalle / MALTEPE CUMHURİYET / 
+İZMİR / MENEMEN / mahalle / ULUKENT DOKUZ EYLÜL / 
+İZMİR / MENEMEN / mahalle / SEYREK CUMHURİYET / 
+İZMİR / SEFERİHİSAR / mahalle / NECAT HEPKON / 
+İZMİR / TİRE / mahalle / DÖRTEYLÜL / 
+KAHRAMANMARAŞ / PAZARCIK / mahalle / MEZRAA / 
+KARS / DİGOR / mahalle / DAĞPINAR / 
+KARS / MERKEZ / mahalle / PAŞAÇAYIR / 
+KASTAMONU / CİDE / mahalle / KASIMKÖY / 
+KASTAMONU / HANÖNÜ / mahalle / MERKEZ / 
+KASTAMONU / TOSYA / mahalle / YENİ SULUCA / 
+KAYSERİ / DEVELİ / mahalle / SİNDELHÜYÜK / 
+KAYSERİ / FELAHİYE / mahalle / BÜYÜKTORAMAN / 
+KAYSERİ / FELAHİYE / mahalle / KAYAPINAR / 
+KAYSERİ / İNCESU / mahalle / GÜNEY / 
+KAYSERİ / İNCESU / mahalle / ORTA / 
+KAYSERİ / TALAS / mahalle / CUMHURİYET / 
+KAYSERİ / TOMARZA / mahalle / BÜYÜKSÜVEGEN / 
+KAYSERİ / TOMARZA / mahalle / KÖPRÜKÖY / 
+KAYSERİ / YAHYALI / mahalle / ÇAĞLAYAN / 
+KIRKLARELİ / LÜLEBURGAZ / mahalle / GÜNDOĞDU / 
+KONYA / BEYŞEHİR / mahalle / ALİ AKKANAT / 
+KONYA / GÜNEYSINIR / mahalle / KARAGÜNEY / 
+KONYA / HADİM / mahalle / AŞAĞIKIZILKAYA / 
+KONYA / HADİM / mahalle / HOLUSLAR / 
+KONYA / HADİM / mahalle / GÜLPINAR / 
+KONYA / MERAM / mahalle / DEDEMLİ / 
+KÜTAHYA / ASLANAPA / mahalle / ESENLER / 
+KÜTAHYA / EMET / mahalle / ÇALCAAĞIL / 
+KÜTAHYA / GEDİZ / mahalle / ERDOĞMUŞ / 
+KÜTAHYA / MERKEZ / mahalle / İSHÂK SEYDİ / 
+MALATYA / AKÇADAĞ / mahalle / KARANLIKDERE / 
+MALATYA / AKÇADAĞ / mahalle / ALTINLI / 
+MALATYA / BATTALGAZİ / mahalle / KÜÇÜK HÜSÜYİN BEY / 
+MALATYA / HEKİMHAN / mahalle / Ş. FETHİ AKYÜZ / 
+MALATYA / YEŞİLYURT / mahalle / CUMHURİYET ÖRNEK / 
+MANİSA / DEMİRCİ / mahalle / DR.AKARSU / 
+MANİSA / DEMİRCİ / mahalle / ERİŞLER / 
+MANİSA / DEMİRCİ / mahalle / KÖPÜLER / 
+MANİSA / KULA / mahalle / ŞEYHLİ / 
+MANİSA / KULA / mahalle / DÖRT EYLÜL / 
+MANİSA / SOMA / mahalle / ÇERKEZ HAMİDİYE / 
+MUĞLA / MİLAS / mahalle / GAZİ-FİRUZ PAŞA / 
+MUĞLA / MİLAS / mahalle / HAYITLI-AHMET ÇAVUŞ / 
+NEVŞEHİR / MERKEZ / mahalle / KAPADOKYA / 
+NEVŞEHİR / MERKEZ / mahalle / ESKİ / 
+NİĞDE / MERKEZ / mahalle / A.KAYABAŞI / 
+NİĞDE / MERKEZ / mahalle / KAYAARDI / 
+NİĞDE / MERKEZ / mahalle / SARIKÖPRÜ / 
+ORDU / FATSA / mahalle / YUKARI KÖSEBUCAĞI / 
+ORDU / KABATAŞ / mahalle / KABATAŞ / 
+ORDU / ULUBEY / mahalle / ŞEYHLER / 
+OSMANİYE / MERKEZ / mahalle / MURAT KURUM BEY / 
+RİZE / ARDEŞEN / mahalle / YENİMAHALLE / 
+RİZE / PAZAR / mahalle / SAHİLKÖY / 
+SAKARYA / ADAPAZARI / mahalle / YENİMAHALLE / 
+SAKARYA / AKYAZI / mahalle / CUMHURİYET (KÜÇÜCEK) / 
+SAKARYA / SERDİVAN / mahalle / 32 EVLER / 
+SAMSUN / ATAKUM / mahalle / TAFLAN CAMİ / 
+SAMSUN / ATAKUM / mahalle / ATAKENT GÜZELYALI / 
+SAMSUN / CANİK / mahalle / 200 EVLER / 
+SAMSUN / KAVAK / mahalle / AHIRLI / 
+SAMSUN / TERME / mahalle / ALTINLI / 
+SAMSUN / TERME / mahalle / MESCİTKÖY / 
+SAMSUN / VEZİRKÖPRÜ / mahalle / ORTACAMİİ / 
+SİİRT / MERKEZ / mahalle / YENİMAHALLE / 
+SİİRT / MERKEZ / mahalle / AFETKONUTLARI / 
+SİNOP / MERKEZ / mahalle / ESKİCUMA / 
+SİNOP / TÜRKELİ / mahalle / GÜZELKENT / 
+SİNOP / TÜRKELİ / mahalle / YALI / 
+SİVAS / YILDIZELİ / mahalle / CAMİ / 
+ŞANLIURFA / AKÇAKALE / mahalle / ERTUĞRUL GAZİ / 
+ŞANLIURFA / AKÇAKALE / mahalle / YEŞİLTEPE / 
+ŞANLIURFA / AKÇAKALE / mahalle / YİĞİTLER / 
+ŞANLIURFA / AKÇAKALE / mahalle / TEPECİK / 
+ŞANLIURFA / AKÇAKALE / mahalle / DEMİRCİ / 
+ŞANLIURFA / BOZOVA / mahalle / KÜÇÜK HİSARLAR / 
+ŞANLIURFA / BOZOVA / mahalle / ŞEYHLER / 
+ŞANLIURFA / BOZOVA / mahalle / CAVSAK / 
+ŞANLIURFA / CEYLANPINAR / mahalle / YENİ SUFRA / 
+ŞANLIURFA / EYYÜBİYE / mahalle / HACIALİ / 
+ŞANLIURFA / EYYÜBİYE / mahalle / GÜNEYKENT / 
+ŞANLIURFA / EYYÜBİYE / mahalle / MERMERCİLER / 
+ŞANLIURFA / HALİLİYE / mahalle / YEŞİLDERE / 
+ŞANLIURFA / HARRAN / mahalle / KARAKEÇİLİ / 
+ŞANLIURFA / HARRAN / mahalle / EKİNLİ / 
+ŞANLIURFA / HARRAN / mahalle / YEDİKARDEŞ / 
+ŞANLIURFA / HARRAN / mahalle / GÜL / 
+ŞANLIURFA / HARRAN / mahalle / BİRLİK / 
+ŞANLIURFA / HİLVAN / mahalle / NASREDDİN / 
+ŞANLIURFA / SİVEREK / mahalle / GÜZELŞEHİR / 
+ŞANLIURFA / SURUÇ / mahalle / KAPICI / 
+ŞANLIURFA / SURUÇ / mahalle / ÖRGÜTLÜ / 
+ŞANLIURFA / VİRANŞEHİR / mahalle / ACARLAR / 
+ŞANLIURFA / VİRANŞEHİR / mahalle / ALİOĞLU / 
+ŞIRNAK / MERKEZ / mahalle / YENİMAHALLE / 
+TEKİRDAĞ / ÇORLU / mahalle / SİNANDEDE / 
+TOKAT / ERBAA / mahalle / KOÇAK / 
+TOKAT / NİKSAR / mahalle / HAYDARBEY / 
+TOKAT / REŞADİYE / mahalle / GÜVENLİK / 
+TRABZON / ÇARŞIBAŞI / mahalle / ÇARŞIBAŞI / 
+TUNCELİ / OVACIK / mahalle / 94 MAHALLESİ / 
+UŞAK / MERKEZ / mahalle / AKSE / 
+UŞAK / MERKEZ / mahalle / BÖLME / 
+VAN / İPEKYOLU / mahalle / ŞAFAK / 
+VAN / İPEKYOLU / mahalle / GÜNDOĞDU / 
+YOZGAT / BOĞAZLIYAN / mahalle / ÖZLER / 
+YOZGAT / SORGUN / mahalle / YENİMAHALLE / 
+YOZGAT / YERKÖY / mahalle / 60 EVLER / 
+ZONGULDAK / ÇAYCUMA / mahalle / AHATLI / 
+ZONGULDAK / ÇAYCUMA / mahalle / ALİKÖY / 
+ZONGULDAK / ÇAYCUMA / mahalle / AYVAZLAR / 
+BAYBURT / MERKEZ / köy / AŞAĞIÇİMAĞIL / 
+BAYBURT / MERKEZ / köy / BAŞÇİMAĞIL / 
+BAYBURT / MERKEZ / köy / GEZKÖY / 
+BAYBURT / MERKEZ / köy / KOPKÖY / 
+BİTLİS / TATVAN / köy / ORUÇLU / 
+BOLU / MENGEN / köy / TURNAKÖY / 
+ELAZIĞ / MERKEZ / köy / DEREBOĞAZI / 
+ELAZIĞ / MERKEZ / köy / DOĞANKUŞ / 
+ELAZIĞ / MERKEZ / köy / ELMAPINARI / 
+ELAZIĞ / MERKEZ / köy / GÜZELYURT / 
+ELAZIĞ / MERKEZ / köy / İKİTEPE / 
+ELAZIĞ / MERKEZ / köy / KUŞLUYAZI / 
+ELAZIĞ / MERKEZ / köy / YÜNLÜCE / 
+HAKKARİ / ÇUKURCA / köy / ÇAĞLAYAN / 
+HAKKARİ / ÇUKURCA / köy / ÇAYIRLI / 
+HAKKARİ / ÇUKURCA / köy / ÇINARLI / 
+HAKKARİ / ÇUKURCA / köy / DEDE / 
+HAKKARİ / ÇUKURCA / köy / IŞIKLI / 
+HAKKARİ / ÇUKURCA / köy / KAVAKLI / 
+HAKKARİ / ÇUKURCA / köy / KAVUŞAK / 
+HAKKARİ / ÇUKURCA / köy / KURUDERE / 
+HAKKARİ / YÜKSEKOVA / köy / İKİYAKA / 
+HAKKARİ / YÜKSEKOVA / köy / PİRİNÇEKEN / 
+MUŞ / VARTO / köy / YENİ BAĞİÇİ / 
+SİİRT / ŞİRVAN / köy / CEVİZDALI / 
+ŞIRNAK / SİLOPİ / köy / BALLIKAYA / 
+ŞIRNAK / SİLOPİ / köy / DÜZALAN / 
+ŞIRNAK / SİLOPİ / köy / KARACAKÖY / 
+ŞIRNAK / SİLOPİ / köy / KOYUNÖREN / 
+ŞIRNAK / SİLOPİ / köy / UYANIK / 
+ŞIRNAK / SİLOPİ / köy / YAZIKÖY / 
+TOKAT / ERBAA / köy / FINDICAK / 
+TOKAT / ERBAA / köy / FINDICAK / 
+TOKAT / NİKSAR / köy / SORKUN / 
+TOKAT / REŞADİYE / köy / DARIDERESİ / 
+ZONGULDAK / ÇAYCUMA / köy / ŞEYHLER / 
+ZONGULDAK / EREĞLİ / köy / BEYVEREN / 
+ZONGULDAK / EREĞLİ / köy / ORMANLI / 
+ZONGULDAK / EREĞLİ / köy / OVAKÖY / 
+AFYONKARAHİSAR / BOLVADİN / bağlı / KİREMİTOCAĞI / BOLVADİN-İLÇE MERKEZİ
+BAYBURT / MERKEZ / bağlı / GEZHANLARI / GEZKÖY
+BAYBURT / MERKEZ / bağlı / DODULLARINKOMU / KOPKÖY
+BAYBURT / MERKEZ / bağlı / HACIGİLİNKOMU / KOPKÖY
+BAYBURT / MERKEZ / bağlı / KOKDİBİKOMU / KOPKÖY
+BAYBURT / MERKEZ / bağlı / KOPHANLARI / KOPKÖY
+BOLU / MENGEN / bağlı / ÇAMLIKÖY / TURNAKÖY
+BOLU / MENGEN / bağlı / KULAKSIZOĞLU / TURNAKÖY
+BOLU / MENGEN / bağlı / SARIYER / TURNAKÖY
+BOLU / MENGEN / bağlı / ŞABANLAR / TURNAKÖY
+ELAZIĞ / MERKEZ / bağlı / AĞAÇ / DEREBOĞAZI
+ELAZIĞ / MERKEZ / bağlı / ÖKSÜZ / DEREBOĞAZI
+ELAZIĞ / MERKEZ / bağlı / SANTRAL / DEREBOĞAZI
+ELAZIĞ / MERKEZ / bağlı / AYDINLAR / Güzelyurt
+ELAZIĞ / MERKEZ / bağlı / ÇOAKAR / Güzelyurt
+ELAZIĞ / MERKEZ / bağlı / DELLAL / Güzelyurt
+ELAZIĞ / MERKEZ / bağlı / KÜTUŞAĞI / Güzelyurt
+ELAZIĞ / MERKEZ / bağlı / MOLLAHASAN / Güzelyurt
+ELAZIĞ / MERKEZ / bağlı / OLUKLU / Güzelyurt
+ELAZIĞ / MERKEZ / bağlı / SUKOLAR / Güzelyurt
+
+== Yalnız PTT'de olanlar (ilk 300)
+ADANA / CEYHAN / mahalle / SARIMAZISB / 
+ADANA / ÇUKUROVA / mahalle / YÜZÜNCÜYIL / 
+ADANA / KARATAŞ / mahalle / GÖLKAYA / 
+ADANA / KARATAŞ / mahalle / TABUR / 
+ADANA / KOZAN / mahalle / YENİKÖY / 
+ADANA / SARIÇAM / mahalle / ACIDEREOSB / 
+ADANA / SEYHAN / mahalle / 2000EVLER / 
+ADIYAMAN / BESNİ / mahalle / PINARBAŞIOSB / 
+ADIYAMAN / BESNİ / mahalle / GÖNDERME / 
+ADIYAMAN / BESNİ / mahalle / HÖYÜK / 
+ADIYAMAN / BESNİ / mahalle / İZNİK / 
+ADIYAMAN / BESNİ / mahalle / KARNAÇIK / 
+ADIYAMAN / BESNİ / mahalle / SARIÇİÇEK / 
+ADIYAMAN / BESNİ / mahalle / TİLEYLİ / 
+ADIYAMAN / BESNİ / mahalle / YENİKURUGÖL / 
+ADIYAMAN / BESNİ / mahalle / YUSUFAĞA / 
+ADIYAMAN / BESNİ / köy mahallesi / AHURİ / SARIKAYA
+ADIYAMAN / BESNİ / köy mahallesi / AKDOĞANLAR / BERETE
+ADIYAMAN / BESNİ / köy mahallesi / ALİERDEMOĞLU / MERKEZ
+ADIYAMAN / BESNİ / köy mahallesi / ATATÜRK / SUGÖZÜ
+ADIYAMAN / BESNİ / köy mahallesi / ATATÜRK / ÜÇGÖZ
+ADIYAMAN / BESNİ / köy mahallesi / BAHRİ / BAHRİ
+ADIYAMAN / BESNİ / köy mahallesi / BALKA / BEŞYOL
+ADIYAMAN / BESNİ / köy mahallesi / ÇÖPLÜKIŞLA / YENİKÖY
+ADIYAMAN / BESNİ / köy mahallesi / ÇORMAN / TOKAR
+ADIYAMAN / BESNİ / köy mahallesi / CUMHURİYET / SARIYAPRAK
+ADIYAMAN / BESNİ / köy mahallesi / CUMHURRİYET / ÜÇGÖZ
+ADIYAMAN / BESNİ / köy mahallesi / DELİSEKİ / ÇAMLICA
+ADIYAMAN / BESNİ / köy mahallesi / FATİH / SARIYAPRAK
+ADIYAMAN / BESNİ / köy mahallesi / HÖYÜK / BEŞYOL
+ADIYAMAN / BESNİ / köy mahallesi / İNÖNÜ / SUGÖZÜ
+ADIYAMAN / BESNİ / köy mahallesi / İNÖNÜ / ÜÇGÖZ
+ADIYAMAN / BESNİ / köy mahallesi / KARAAĞAÇ / YELBASTI
+ADIYAMAN / BESNİ / köy mahallesi / KARAGEÇİ / BEŞYOL
+ADIYAMAN / BESNİ / köy mahallesi / KEPİRCE / YAZIKARAKUYU
+ADIYAMAN / BESNİ / köy mahallesi / KOCAPİRLİ / EĞERLİ
+ADIYAMAN / BESNİ / köy mahallesi / NOHUDANLI / HACIHALİL
+ADIYAMAN / BESNİ / köy mahallesi / SATILUŞAĞI / OYRATLI
+ADIYAMAN / BESNİ / köy mahallesi / SUMAKLIGÜZELEVLER / KURUGÖL
+ADIYAMAN / BESNİ / köy mahallesi / ÜRECİK / YELBASTI
+ADIYAMAN / BESNİ / köy mahallesi / YAZIBADEMCE / YAZIKARAKUYU
+ADIYAMAN / BESNİ / köy mahallesi / YAZIYURDU / BERETE
+ADIYAMAN / BESNİ / köy mahallesi / YEMLİCE / KESECİK
+ADIYAMAN / BESNİ / köy mahallesi / YEŞİLOVA / ÖREN
+ADIYAMAN / BESNİ / köy mahallesi / YUKARIHOZGİŞİ / YENİKÖY
+ADIYAMAN / BESNİ / köy mahallesi / ZORMAĞARA / YENİKÖY
+ADIYAMAN / BESNİ / mahalle / AKDERE / 
+ADIYAMAN / BESNİ / mahalle / AKKUYU / 
+ADIYAMAN / BESNİ / mahalle / BEŞİR / 
+ADIYAMAN / BESNİ / mahalle / BOSTANCIK / 
+ADIYAMAN / BESNİ / mahalle / KARAHALİL / 
+ADIYAMAN / BESNİ / mahalle / KILIÇLI / 
+ADIYAMAN / BESNİ / mahalle / KIZILCAMUSTAFA / 
+ADIYAMAN / BESNİ / mahalle / ÖZBAĞLAR / 
+ADIYAMAN / BESNİ / mahalle / YAZIYALANGOZ / 
+ADIYAMAN / BESNİ / mahalle / BÜYÜKOBA / 
+ADIYAMAN / BESNİ / mahalle / ÇAKALLI / 
+ADIYAMAN / BESNİ / mahalle / ÇAYIROBASI / 
+ADIYAMAN / BESNİ / mahalle / KIRAÇHAYMA / 
+ADIYAMAN / BESNİ / mahalle / KÖRTANLI / 
+ADIYAMAN / BESNİ / mahalle / TUTLUPINAR / 
+ADIYAMAN / ÇELİKHAN / köy mahallesi / ALİGÜR / GÖLBAĞI
+ADIYAMAN / ÇELİKHAN / köy mahallesi / ALİSAHAKÜMESİ / MUTLU
+ADIYAMAN / ÇELİKHAN / köy mahallesi / BAHÇEKÜMESİ / MUTLU
+ADIYAMAN / ÇELİKHAN / köy mahallesi / ÇAT / ŞEREFHAN
+ADIYAMAN / ÇELİKHAN / köy mahallesi / CEMOLAR / KALECİK
+ADIYAMAN / ÇELİKHAN / köy mahallesi / DEĞİRMENBAŞI / ÇAMPINAR
+ADIYAMAN / ÇELİKHAN / köy mahallesi / DEVEBOYNU / AKSU
+ADIYAMAN / ÇELİKHAN / köy mahallesi / DÜZAĞAÇ / BOZGEDİK
+ADIYAMAN / ÇELİKHAN / köy mahallesi / ESKİKÖY / RECEP
+ADIYAMAN / ÇELİKHAN / köy mahallesi / ESKİKÖY / YEŞİLYAYLA
+ADIYAMAN / ÇELİKHAN / köy mahallesi / HAMİK / KÖSEUŞAĞI
+ADIYAMAN / ÇELİKHAN / köy mahallesi / HOVİRGEYAYLASI / MUTLU
+ADIYAMAN / ÇELİKHAN / köy mahallesi / KALE / YEŞİLTEPE
+ADIYAMAN / ÇELİKHAN / köy mahallesi / KARŞIKÜMEEVLERİ / MUTLU
+ADIYAMAN / ÇELİKHAN / köy mahallesi / KIŞIKANYAYLASI / MUTLU
+ADIYAMAN / ÇELİKHAN / köy mahallesi / KOYUNCULAR / GÖLBAĞI
+ADIYAMAN / ÇELİKHAN / köy mahallesi / MERKEZKÜMESİ / MUTLU
+ADIYAMAN / ÇELİKHAN / köy mahallesi / ŞAHVERDİ / RECEP
+ADIYAMAN / ÇELİKHAN / köy mahallesi / ŞAHVERDİYAYLAEVLERİ / RECEP
+ADIYAMAN / ÇELİKHAN / köy mahallesi / SOĞUKPINAR / KORUCAK
+ADIYAMAN / ÇELİKHAN / köy mahallesi / YAĞMURLU / KÖSEUŞAĞI
+ADIYAMAN / ÇELİKHAN / köy mahallesi / YAYLAEVLERİ / ÇAMPINAR
+ADIYAMAN / ÇELİKHAN / köy mahallesi / YAYLAEVLERİ / ASKERHAN
+ADIYAMAN / GERGER / köy mahallesi / AKSAN / YAYLADALI
+ADIYAMAN / GERGER / köy mahallesi / ALDUŞ / KONACIK
+ADIYAMAN / GERGER / köy mahallesi / ARTİLAN / DAĞDEVİREN
+ADIYAMAN / GERGER / köy mahallesi / AŞAĞICİMİK / GÜZELSU
+ADIYAMAN / GERGER / köy mahallesi / AYDINLIKZUĞUR / DALLARCA
+ADIYAMAN / GERGER / köy mahallesi / BAĞLAR / GEÇİTLİ
+ADIYAMAN / GERGER / köy mahallesi / BAYİK / OYMAKLI
+ADIYAMAN / GERGER / köy mahallesi / BAZİK / YAYLADALI
+ADIYAMAN / GERGER / köy mahallesi / BEKİRAN / KILIÇ
+ADIYAMAN / GERGER / köy mahallesi / BEMİRGO / KONACIK
+ADIYAMAN / GERGER / köy mahallesi / BİLDEŞ / DEMİRTAŞ
+ADIYAMAN / GERGER / köy mahallesi / BİRCAN / GÜNGÖRMÜŞ
+ADIYAMAN / GERGER / köy mahallesi / BODİN / GÜNDOĞDU
+ADIYAMAN / GERGER / köy mahallesi / ÇAMİK / SEYİTMAHMUT
+ADIYAMAN / GERGER / köy mahallesi / ÇAVGÜR / ÇOBANPINARI
+ADIYAMAN / GERGER / köy mahallesi / ÇAVUŞSİVER / SUTEPE
+ADIYAMAN / GERGER / köy mahallesi / ÇEMAN / DAĞDEVİREN
+ADIYAMAN / GERGER / köy mahallesi / ÇET / ÇAMİÇİ
+ADIYAMAN / GERGER / köy mahallesi / ÇETİN / KÜTÜKLÜ
+ADIYAMAN / GERGER / köy mahallesi / ÇINARIK / YUKARIDAĞLICA
+ADIYAMAN / GERGER / köy mahallesi / ÇINARLIK / GÜMÜŞKAŞIK
+ADIYAMAN / GERGER / köy mahallesi / ÇUKURCA / AÇMA
+ADIYAMAN / GERGER / köy mahallesi / DESPAL / YAĞMURLU
+ADIYAMAN / GERGER / köy mahallesi / DEYRO / KONACIK
+ADIYAMAN / GERGER / köy mahallesi / DOLORİZAN / GÖLYURT
+ADIYAMAN / GERGER / köy mahallesi / DÖŞNİK / KAŞYAZI
+ADIYAMAN / GERGER / köy mahallesi / ERDOĞMUŞBALEYREK / DALLARCA
+ADIYAMAN / GERGER / köy mahallesi / GELEBAZ / KILIÇ
+ADIYAMAN / GERGER / köy mahallesi / GÖLANİ / ONEVLER
+ADIYAMAN / GERGER / köy mahallesi / GÖMEİMASUR / GÖLYURT
+ADIYAMAN / GERGER / köy mahallesi / GÖMÜK / AĞAÇLI
+ADIYAMAN / GERGER / köy mahallesi / GÜDAYİK / GÖNEN
+ADIYAMAN / GERGER / köy mahallesi / GÜNEYPINAR / YENİBARDAK
+ADIYAMAN / GERGER / köy mahallesi / HANBERTİ / BURÇAKLI
+ADIYAMAN / GERGER / köy mahallesi / HARMUZAN / GÖZPINAR
+ADIYAMAN / GERGER / köy mahallesi / HELEZİN / GÖLYURT
+ADIYAMAN / GERGER / köy mahallesi / HEVENK / ESKİKENT
+ADIYAMAN / GERGER / köy mahallesi / HİLİM / GÖNEN
+ADIYAMAN / GERGER / köy mahallesi / HIRCIK / GÜRGENLİ
+ADIYAMAN / GERGER / köy mahallesi / HORSAİK / DAĞDEVİREN
+ADIYAMAN / GERGER / köy mahallesi / HÜSÜKAN / GÖLYURT
+ADIYAMAN / GERGER / köy mahallesi / KAF / GEÇİTLİ
+ADIYAMAN / GERGER / köy mahallesi / KAĞINDAK / GÖZPINAR
+ADIYAMAN / GERGER / köy mahallesi / KALECİK / KILIÇ
+ADIYAMAN / GERGER / köy mahallesi / KARACAVİRAN / GÜZELSU
+ADIYAMAN / GERGER / köy mahallesi / KARDİGİN / YAYLADALI
+ADIYAMAN / GERGER / köy mahallesi / KARUK / KAŞYAZI
+ADIYAMAN / GERGER / köy mahallesi / KEFERGE / KORULU
+ADIYAMAN / GERGER / köy mahallesi / KELAZİN / YAĞMURLU
+ADIYAMAN / GERGER / köy mahallesi / KERZEL / OYMAKLI
+ADIYAMAN / GERGER / köy mahallesi / KERZEL / YAĞMURLU
+ADIYAMAN / GERGER / köy mahallesi / KEVİRSOR / BURÇAKLI
+ADIYAMAN / GERGER / köy mahallesi / KIRINGÖL / YENİBARDAK
+ADIYAMAN / GERGER / köy mahallesi / KIRMIZITARLA / YENİBARDAK
+ADIYAMAN / GERGER / köy mahallesi / KİŞİK / KILIÇ
+ADIYAMAN / GERGER / köy mahallesi / KIZZIK / BURÇAKLI
+ADIYAMAN / GERGER / köy mahallesi / KÖRTİGİN / BURÇAKLI
+ADIYAMAN / GERGER / köy mahallesi / KOZAĞAÇI / ONEVLER
+ADIYAMAN / GERGER / köy mahallesi / MARONİ / SARAYCIK
+ADIYAMAN / GERGER / köy mahallesi / MERKEZ / BURÇAKLI
+ADIYAMAN / GERGER / köy mahallesi / MEZRA / GÜRGENLİ
+ADIYAMAN / GERGER / köy mahallesi / MIRZA / DALLARCA
+ADIYAMAN / GERGER / köy mahallesi / NİNYAT / GÖZPINAR
+ADIYAMAN / GERGER / köy mahallesi / ÖMERAN / GÜNGÖRMÜŞ
+ADIYAMAN / GERGER / köy mahallesi / ÖZKURAN / NAKIŞLI
+ADIYAMAN / GERGER / köy mahallesi / PAMULUK / GÜMÜŞKAŞIK
+ADIYAMAN / GERGER / köy mahallesi / PANKİN / BEYBOSTAN
+ADIYAMAN / GERGER / köy mahallesi / PEMİCE / YENİBARDAK
+ADIYAMAN / GERGER / köy mahallesi / PINARBAŞI / GÖLYURT
+ADIYAMAN / GERGER / köy mahallesi / PİYAMLİ / SUTEPE
+ADIYAMAN / GERGER / köy mahallesi / PUPAR / OYMAKLI
+ADIYAMAN / GERGER / köy mahallesi / ŞAKOL / YENİBARDAK
+ADIYAMAN / GERGER / köy mahallesi / SALAVAT / BEŞGÖZE
+ADIYAMAN / GERGER / köy mahallesi / SAMAK / ÇAMİÇİ
+ADIYAMAN / GERGER / köy mahallesi / ŞAMANİ / GÜZELSU
+ADIYAMAN / GERGER / köy mahallesi / SANKOSİ / KORULU
+ADIYAMAN / GERGER / köy mahallesi / ŞAVİ / GÖLYURT
+ADIYAMAN / GERGER / köy mahallesi / SENGETO / CEVİZPINAR
+ADIYAMAN / GERGER / köy mahallesi / ŞENGÜL / ÇAMİÇİ
+ADIYAMAN / GERGER / köy mahallesi / SOFYAN / KOŞARLAR
+ADIYAMAN / GERGER / köy mahallesi / SORİK / DEMİRTAŞ
+ADIYAMAN / GERGER / köy mahallesi / TANKÜL / GÖLYURT
+ADIYAMAN / GERGER / köy mahallesi / TARAKSU / ÜÇKAYA
+ADIYAMAN / GERGER / köy mahallesi / TİLLAK / BEŞGÖZE
+ADIYAMAN / GERGER / köy mahallesi / TIRKIDİN / GÜRGENLİ
+ADIYAMAN / GERGER / köy mahallesi / TIRŞİK / SEYİTMAHMUT
+ADIYAMAN / GERGER / köy mahallesi / VANKÖK / GÖLYURT
+ADIYAMAN / GERGER / köy mahallesi / YUVACIK / AÇMA
+ADIYAMAN / GÖLBAŞI / köy mahallesi / ALİKAYA / AKÇAKAYA
+ADIYAMAN / GÖLBAŞI / köy mahallesi / ARPATARLASI / KARABAHŞILI
+ADIYAMAN / GÖLBAŞI / köy mahallesi / BALLIK / SAVRAN
+ADIYAMAN / GÖLBAŞI / köy mahallesi / BEŞEVLER / HAYDARLI
+ADIYAMAN / GÖLBAŞI / köy mahallesi / BEŞEVLER / KARABAHŞILI
+ADIYAMAN / GÖLBAŞI / köy mahallesi / ÇAYIR / KARABAHŞILI
+ADIYAMAN / GÖLBAŞI / köy mahallesi / ÇELİKKÖYOSB / ÇELİKKÖY
+ADIYAMAN / GÖLBAŞI / köy mahallesi / CERRAHOBASI / HAYDARLI
+ADIYAMAN / GÖLBAŞI / köy mahallesi / CİVKUR / KÖSÜKLÜ
+ADIYAMAN / GÖLBAŞI / köy mahallesi / CUMHURİYET / MERKEZ
+ADIYAMAN / GÖLBAŞI / köy mahallesi / DURAK / ÇATALAĞAÇ
+ADIYAMAN / GÖLBAŞI / köy mahallesi / DURAK / ÇELİKKÖY
+ADIYAMAN / GÖLBAŞI / köy mahallesi / HASANLAR / HAMZALAR
+ADIYAMAN / GÖLBAŞI / köy mahallesi / İSTASYON / ÇELİKKÖY
+ADIYAMAN / GÖLBAŞI / köy mahallesi / KANDİL / HAMZALAR
+ADIYAMAN / GÖLBAŞI / köy mahallesi / KARAÇUKUR / KARABAHŞILI
+ADIYAMAN / GÖLBAŞI / köy mahallesi / KARAHASAN / ÇATALTEPE
+ADIYAMAN / GÖLBAŞI / köy mahallesi / KEÇİBAŞI / MEYDAN
+ADIYAMAN / GÖLBAŞI / köy mahallesi / KERALMAZ / ÇATALAĞAÇ
+ADIYAMAN / GÖLBAŞI / köy mahallesi / KEZBİ / SAVRAN
+ADIYAMAN / GÖLBAŞI / köy mahallesi / KÖRPINARI / MEYDAN
+ADIYAMAN / GÖLBAŞI / köy mahallesi / KÖTEL / KARABAHŞILI
+ADIYAMAN / GÖLBAŞI / köy mahallesi / KUMLUMEZRASI / AKTOPRAK
+ADIYAMAN / GÖLBAŞI / köy mahallesi / KURUCUOVA / SAVRAN
+ADIYAMAN / GÖLBAŞI / köy mahallesi / MIÇOLAR / ÇATALTEPE
+ADIYAMAN / GÖLBAŞI / köy mahallesi / SERPENOLAR / HAYDARLI
+ADIYAMAN / GÖLBAŞI / köy mahallesi / SIRIKLI / HAMZALAR
+ADIYAMAN / GÖLBAŞI / köy mahallesi / SÖĞÜTLÜ / KÜÇÜKÖREN
+ADIYAMAN / GÖLBAŞI / köy mahallesi / SORKUN / HAYDARLI
+ADIYAMAN / GÖLBAŞI / köy mahallesi / TECİRLİ / ÇATALTEPE
+ADIYAMAN / GÖLBAŞI / köy mahallesi / UÇARLAR / HAMZALAR
+ADIYAMAN / GÖLBAŞI / köy mahallesi / YENİKENT / MERKEZ
+ADIYAMAN / GÖLBAŞI / köy mahallesi / YIKICAK / MEYDAN
+ADIYAMAN / GÖLBAŞI / köy mahallesi / YOLBAĞI / ÇATALTEPE
+ADIYAMAN / KAHTA / mahalle / ACOĞLU / 
+ADIYAMAN / KAHTA / mahalle / AKÇAKENT / 
+ADIYAMAN / KAHTA / mahalle / AKÇAVEREN / 
+ADIYAMAN / KAHTA / mahalle / AKINCILARATATÜRK / 
+ADIYAMAN / KAHTA / mahalle / AŞAĞITUĞLU / 
+ADIYAMAN / KAHTA / mahalle / ATAKÖY / 
+ADIYAMAN / KAHTA / mahalle / BAHÇE / 
+ADIYAMAN / KAHTA / mahalle / BAKACAK / 
+ADIYAMAN / KAHTA / mahalle / BERBANOS / 
+ADIYAMAN / KAHTA / mahalle / BUHARA / 
+ADIYAMAN / KAHTA / mahalle / BÜYÜKGÖZ / 
+ADIYAMAN / KAHTA / mahalle / DAMÜSTÜ / 
+ADIYAMAN / KAHTA / mahalle / DOĞANTEPE / 
+ADIYAMAN / KAHTA / mahalle / ELMALITUĞLU / 
+ADIYAMAN / KAHTA / mahalle / ESENTEPE / 
+ADIYAMAN / KAHTA / mahalle / GEVAZİ / 
+ADIYAMAN / KAHTA / mahalle / GÜLAHMET / 
+ADIYAMAN / KAHTA / mahalle / HİNİÇ / 
+ADIYAMAN / KAHTA / mahalle / HÜSEYİNLİ / 
+ADIYAMAN / KAHTA / mahalle / KARAMAĞARA / 
+ADIYAMAN / KAHTA / mahalle / KARATAŞ / 
+ADIYAMAN / KAHTA / mahalle / KARMİTLİ / 
+ADIYAMAN / KAHTA / mahalle / KÜÇÜKTOMAK / 
+ADIYAMAN / KAHTA / mahalle / MAHMUDİYE / 
+ADIYAMAN / KAHTA / mahalle / MUSTAFAÇAYIR / 
+ADIYAMAN / KAHTA / mahalle / NERGİZTEPE / 
+ADIYAMAN / KAHTA / mahalle / PINARYOLU / 
+ADIYAMAN / KAHTA / mahalle / SIRATUT / 
+ADIYAMAN / KAHTA / mahalle / SOFYA / 
+ADIYAMAN / KAHTA / mahalle / SÜSÜK / 
+ADIYAMAN / KAHTA / mahalle / TERİYAN / 
+ADIYAMAN / KAHTA / mahalle / TETA / 
+ADIYAMAN / KAHTA / mahalle / TİLBE / 
+ADIYAMAN / KAHTA / mahalle / TÜREŞİK / 
+ADIYAMAN / KAHTA / mahalle / YEŞİLKAYA / 
+ADIYAMAN / KAHTA / mahalle / YEŞİLTEPE / 
+ADIYAMAN / KAHTA / mahalle / YOLÇATI / 
+ADIYAMAN / KAHTA / köy mahallesi / ABDULLAHBEY / ARILI
+ADIYAMAN / KAHTA / köy mahallesi / AKÇA / ARILI
+ADIYAMAN / KAHTA / köy mahallesi / AKÇALI / AKKUŞ
+ADIYAMAN / KAHTA / köy mahallesi / AKDAMAR / BOZPINAR
+ADIYAMAN / KAHTA / köy mahallesi / AKPINAR / KAVAKLI
+ADIYAMAN / KAHTA / köy mahallesi / AKTOPRAK / ERİKLİ
+ADIYAMAN / KAHTA / köy mahallesi / ASKERAN / YOLALTI
+ADIYAMAN / KAHTA / köy mahallesi / ATLI / GÖLGELİ
+ADIYAMAN / KAHTA / köy mahallesi / AVNİK / GÖKÇE
+ADIYAMAN / KAHTA / köy mahallesi / AYDINLAR / ARILI
+ADIYAMAN / KAHTA / köy mahallesi / BAHÇE / BELÖREN
+ADIYAMAN / KAHTA / köy mahallesi / BEŞEVLER / DUT
+ADIYAMAN / KAHTA / köy mahallesi / BEYPINAR / KAYADİBİ
+ADIYAMAN / KAHTA / köy mahallesi / BIRBIR / ÇIRALIK
+ADIYAMAN / KAHTA / köy mahallesi / BÜYÜTME / TURANLI
+ADIYAMAN / KAHTA / köy mahallesi / ÇELEBİ / ÇIRALIK
+ADIYAMAN / KAHTA / köy mahallesi / ÇEM / ESKİKAHTA
+ADIYAMAN / KAHTA / köy mahallesi / ÇETİNKAYA / KOZAĞAÇ
+ADIYAMAN / KAHTA / köy mahallesi / ÇİÇEK / ZEYTİN
+ADIYAMAN / KAHTA / köy mahallesi / ÇÖRTENEK / ESKİKAHTA
+ADIYAMAN / KAHTA / köy mahallesi / DALİNCE / SIRACA
+ADIYAMAN / KAHTA / köy mahallesi / DAMLI / ECELER
+ADIYAMAN / KAHTA / köy mahallesi / DARBERİ / BURMAPINAR
+ADIYAMAN / KAHTA / köy mahallesi / DEREBAŞI / ÇUKURTAŞ
+ADIYAMAN / KAHTA / köy mahallesi / DİKMETAŞ / YAPRAKLI
+ADIYAMAN / KAHTA / köy mahallesi / DİVAN / ERİKLİ
+ADIYAMAN / KAHTA / köy mahallesi / DUMANLI / ÇAYBAŞI
+ADIYAMAN / KAHTA / köy mahallesi / GEDİK / ALİDAM
+ADIYAMAN / KAHTA / köy mahallesi / GÖLLÜK / KOZAĞAÇ
+ADIYAMAN / KAHTA / köy mahallesi / GÖMLEK / ESKİKAHTA
+ADIYAMAN / KAHTA / köy mahallesi / GÜLVEREN / KARADUT
+ADIYAMAN / KAHTA / köy mahallesi / GÜMÜŞKAYA / DAMLACIK
+ADIYAMAN / KAHTA / köy mahallesi / GÜZELKENT / BÜYÜKBAĞ
+ADIYAMAN / KAHTA / köy mahallesi / HACERİ / ÇAYBAŞI
+ADIYAMAN / KAHTA / köy mahallesi / HALİCE / NARİNCE
+ADIYAMAN / KAHTA / köy mahallesi / HALİFAN / BOSTANLI
+ADIYAMAN / KAHTA / köy mahallesi / HİSAR / BURMAPINAR
+ADIYAMAN / KAHTA / köy mahallesi / İNGİRCE / TURANLI
+ADIYAMAN / KAHTA / köy mahallesi / KAHTAOSB / SALKIMBAĞI
+ADIYAMAN / KAHTA / köy mahallesi / KAMIŞLI / ÇAYBAŞI
+ADIYAMAN / KAHTA / köy mahallesi / KANBOĞAZI / KARADUT
+ADIYAMAN / KAHTA / köy mahallesi / KARABAĞ / TAŞLICA
+ADIYAMAN / KAHTA / köy mahallesi / KARAGÜL / NARİNCE
+ADIYAMAN / KAHTA / köy mahallesi / KARAKUŞ / BAĞÖZÜ
+ADIYAMAN / KAHTA / köy mahallesi / KARANFİL / DAMLACIK
+ADIYAMAN / KAHTA / köy mahallesi / KARAPINAR / TÜTENOCAK
+ADIYAMAN / KAHTA / köy mahallesi / KARATUT / ÇALTILI
+ADIYAMAN / KAHTA / köy mahallesi / KAYA / ZEYTİN
+ADIYAMAN / KAHTA / köy mahallesi / KEKLİK / GÜZELÇAY
+ADIYAMAN / KAHTA / köy mahallesi / KEKLİK / TEĞMENLİ
+ADIYAMAN / KAHTA / köy mahallesi / KELPINAR / ESKİKAHTA
+ADIYAMAN / KAHTA / köy mahallesi / KERKAH / EKİNCİ
+ADIYAMAN / KAHTA / köy mahallesi / KİLİSİK / ÇIRALIK
+ADIYAMAN / KAHTA / köy mahallesi / KINIK / HACIYUSUF
+ADIYAMAN / KAHTA / köy mahallesi / KÖPRÜBAŞI / ESENDERE
+ADIYAMAN / KAHTA / köy mahallesi / KÖRGÜDAN / YAPRAKLI
+ADIYAMAN / KAHTA / köy mahallesi / KOSA / ÇAKIREŞME

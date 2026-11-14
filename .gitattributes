@@ -1,0 +1,4 @@
+*.sql linguist-generated=true
+*.csv linguist-generated=true
+*.json linguist-generated=true
+*.xlsx binary
